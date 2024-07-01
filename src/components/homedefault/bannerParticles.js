@@ -1,7 +1,7 @@
 import React from 'react';
 import {useStaticQuery, graphql} from 'gatsby';
 import Img from "gatsby-image";
-import { Controller, Scene } from 'react-scrollmagic';
+import { Controller, Scene } from 'react-scrollmagic-r18';
 import Particles from 'react-particles-js';
 
 
@@ -10,7 +10,7 @@ const BannerParticles = () => {
     const banenrQueryData = useStaticQuery (graphql`
         query BannerDefaultQueryParticles {
                 homedefaultJson(id: {eq: "main-banner"}) {
-                title    
+                title
                 subtitle
                 bgImage {
                     childImageSharp {
@@ -108,7 +108,7 @@ const BannerParticles = () => {
 
         },
 
-        
+
         "interactivity": {
             "events": {
                 "onhover": {
@@ -118,7 +118,7 @@ const BannerParticles = () => {
             }
         }
     }
-      
+
     // const BannerImages = banenrQueryData.homedefaultJson.bgImage.childImageSharp.fluid;
     const PortfolioImages = banenrQueryData.file.childImageSharp.fixed;
     const Title = banenrQueryData.homedefaultJson.title;
@@ -153,7 +153,7 @@ const BannerParticles = () => {
                 </Controller>
                 <Particles className="particle" params={particleOpt} />
             </div>
-           
+
         </div>
     )
 }

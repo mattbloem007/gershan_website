@@ -1,7 +1,7 @@
 import React from 'react'
 import {useStaticQuery, graphql} from 'gatsby';
 import Img from "gatsby-image";
-import { Controller, Scene } from 'react-scrollmagic';
+import { Controller, Scene } from 'react-scrollmagic-r18';
 
 const About = ( ) => {
     const aboutQueryData = useStaticQuery(graphql`
@@ -13,7 +13,7 @@ const About = ( ) => {
                 description2
                 downloadButton
                 linkBUtton
-                
+
             },
             file(relativePath: {eq: "images/banner/person-image.jpg"}) {
                 childImageSharp {
@@ -58,7 +58,7 @@ const About = ( ) => {
                                         <h3 className="title wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms">{title}<span className="bg">About</span></h3>
                                         {title && <h4 className="subtitle wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms" dangerouslySetInnerHTML={{ __html: Subtitle }}></h4>}
                                     </div>
-                                    
+
                                     {description && <p className="description wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms" dangerouslySetInnerHTML={{ __html: description }}></p>}
                                     {description && <p className="description wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms" dangerouslySetInnerHTML={{ __html: description2 }}></p>}
                                 </div>
