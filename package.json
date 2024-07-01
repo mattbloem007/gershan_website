@@ -17,6 +17,7 @@
     "gatsby-plugin-image": "^3.2.0",
     "gatsby-plugin-manifest": "^5.2.0",
     "gatsby-plugin-netlify": "^5.1.0",
+    "gatsby-plugin-netlify-cms": "^7.12.1",
     "gatsby-plugin-react-helmet": "^6.2.0",
     "gatsby-plugin-sass": "^6.2.0",
     "gatsby-plugin-sharp": "^5.2.0",
