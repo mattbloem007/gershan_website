@@ -1,0 +1,95 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'content/blog'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: 'offering'
+    label: 'Offering'
+    folder: '_offerings'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'ID', name: 'id', widget: 'string' }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Category', name: 'category', widget: 'string' }
+      - { label: 'Featured Image', name: 'featured_image', widget: 'image' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Gallery', name: 'features', widget: 'image', choose_url: true, media_library: {config: {multiple: true, max_files: 999}}}
+
+  - name: 'homepage'
+    label: 'Home Page'
+    delete: false # Prevent users from deleting documents in this collection
+    editor:
+      preview: false
+    files:
+      - name: 'main-banner'
+        label: 'Banner'
+        file: '_bannerContent'
+        description: 'Main Banner info'
+        fields:
+          - { label: 'Title', name: 'site_title', widget: 'string' }
+          - { label: 'Subtitle', name: 'site_subtitle', widget: 'string' }
+          - { label: 'Background Image', name: 'bg_image', widget: 'image' }
+          - { label: 'Profile Image', name: 'person-image', widget: 'image' }
+
+      - name: 'about'
+        label: 'About'
+        file: '_aboutContent'
+        description: 'About content'
+        fields:
+          - { label: 'Title', name: 'about_title', widget: 'string' }
+          - { label: 'Subtitle', name: 'about_subtitle', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'markdown' }
+          - { label: 'Call To Action button', name: 'cta', widget: 'string' }
+
+      - name: 'offerings_title'
+        label: 'Offerings Title'
+        file: '_offeringsTitle'
+        description: 'Offerings Title'
+        fields:
+          - { label: 'Title', name: 'offerings_title', widget: 'string' }
+
+      - name: 'testimonials'
+        label: 'Testimonials'
+        file: '_testimonials'
+        description: 'Testimonial Content'
+        fields:
+          - { label: 'Title', name: 'testimonial_title', widget: 'string' }
+          - { label: 'Subtitle', name: 'testimonial_subtitle', widget: 'string' }
+          - { label: 'Testimonial', name: 'testimonial_body', widget: 'markdown' }
+          - { label: 'Testimonial Image', name: 'testimonial_image', widget: 'image' }
+          - { label: 'Client Name', name: 'clientName', widget: 'string' }
+          - { label: 'Client Company/Occupation', name: 'clientCompany', widget: 'string' }
+
+      - name: 'contact'
+        label: 'Contact'
+        file: '_contact'
+        description: 'Contact content'
+        fields:
+          - { label: 'Title', name: 'contact_title', widget: 'string' }
+          - { label: 'Subtitle', name: 'contact_subtitle', widget: 'string' }
+          - { label: 'Description', name: 'description', widget: 'markdown' }
