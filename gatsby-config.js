@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Waxon Portfolio React Template`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Gershan Lombard`,
+    description: `Gershan Lombard's Offerings`,
+    author: `@mattbloem`,
     siteUrl: "http://localhost:8000/",
     getform_url: "https://getform.io/f/7a6695a7-c8e3-442c-bc2f-d46d3b9a535e",
   },
@@ -14,6 +14,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -42,8 +43,7 @@ module.exports = {
         ],
         display: 'swap',
       },
-  },
-
+    },
 
     {
       resolve: `gatsby-plugin-manifest`,
@@ -54,7 +54,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/images/icon.png`, // This path is relative to the root of the site.
+        icon: `src/data/images/Final-Logo-PNGs/Gold/Ra-Logo-28.png`, // This path is relative to the root of the site.
       },
     },
 
@@ -80,6 +80,7 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sass`,
     `gatsby-transformer-json`,
 
