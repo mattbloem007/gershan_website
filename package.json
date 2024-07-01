@@ -49,6 +49,9 @@
   "devDependencies": {
     "prettier": "^2.8.0"
   },
+  "resolutions": {
+    "graphql": "16.0.0"
+  },
   "keywords": [
     "gatsby"
   ],
