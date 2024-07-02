@@ -3,6 +3,7 @@ import Img from "gatsby-image";
 import Image from "../elements/image";
 import { FiList, FiUser, FiInstagram } from "react-icons/fi";
 import Layout from "../components/layout";
+import { graphql } from 'gatsby'
 
 const ProjectDetails = ({data}) => {
     const projectData = data.projectJson;
@@ -30,7 +31,7 @@ const ProjectDetails = ({data}) => {
                                                 <p className="mt--20">{projectData.body}</p>
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                                 <div className="thumbnail mt--90 mt_md--40 mt_sm--40">
@@ -43,9 +44,9 @@ const ProjectDetails = ({data}) => {
                                             <Img fluid={data.image.childImageSharp.fluid} />
                                         </div>
                                     ))}
-                                </div>   
+                                </div>
 
-                               
+
                             </div>
                         </div>
                     </div>
@@ -84,7 +85,7 @@ export const query = graphql `
                     }
                 }
             }
-            
+
         }
     }
 `;
