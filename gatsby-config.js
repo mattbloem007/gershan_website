@@ -15,6 +15,7 @@ module.exports = {
     `gatsby-plugin-decap-cms`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
