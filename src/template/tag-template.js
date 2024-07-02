@@ -24,14 +24,14 @@ const TagTemplate = ({data , pageContext}) => {
                                     </ul>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div className="row">
                         {tagsblogs.map((blog) => (
                         <Post column="col-lg-4 col-md-6 col-12" key={blog.node.fields.slug}
                                 content={{
-                                    ...blog.node.fields, 
+                                    ...blog.node.fields,
                                     ...blog.node.frontmatter,
                                     excerpt: blog.node.excerpt
                                 }}
@@ -47,7 +47,7 @@ const TagTemplate = ({data , pageContext}) => {
 export const allTagQueryData = graphql`
     query allTagQuery ($tag: String!){
         allMarkdownRemark (
-            sort: {fields: frontmatter___date, order: DESC}
+            sort: {frontmatter: {date: DESC}}
             filter: {frontmatter: {tags: { in: [$tag]}}}
         ){
         totalCount

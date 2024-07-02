@@ -9,7 +9,7 @@ exports.onCreateNode = ({node , actions}) => {
     if (node.internal.type === 'MarkdownRemark') {
         const slugFromTitle = slugify(node.frontmatter.title)
         createNodeField({
-            node, 
+            node,
             name: 'slug',
             value: slugFromTitle,
         });
@@ -22,7 +22,7 @@ exports.onCreateNode = ({node , actions}) => {
             });
         }
     }
-    
+
     if(node.internal.type === 'AuthorsJson'){
         createNodeField({
             node,
@@ -33,7 +33,7 @@ exports.onCreateNode = ({node , actions}) => {
 
 }
 
-exports.createPages = ({actions, graphql}) => {
+exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions;
     const templates =  {
         projectDetails: path.resolve('src/template/project-details.js'),
@@ -43,7 +43,7 @@ exports.createPages = ({actions, graphql}) => {
         authorPage: path.resolve('src/template/archive.js'),
     }
 
-    return graphql(`
+    const result = await graphql(`
         {
             allProjectJson {
                 edges {
@@ -71,13 +71,13 @@ exports.createPages = ({actions, graphql}) => {
                     }
                 }
             }
-            
+
 
         }
-    `).then( res => {
-        if (res.errors) return Promise.reject(res.errors)
-        const project = res.data.allProjectJson.edges
-        const posts = res.data.allMarkdownRemark.edges
+    `)
+        if (result.errors) return Promise.reject(result.errors)
+        const project = result.data.allProjectJson.edges
+        const posts = result.data.allMarkdownRemark.edges
 
          // Create Project Page
          project.forEach(({ node }) => {
@@ -91,7 +91,7 @@ exports.createPages = ({actions, graphql}) => {
             })
         })
 
-        // Create Single Blog Page 
+        // Create Single Blog Page
         posts.forEach(({ node }) => {
             createPage({
                 path: `${slugify(node.fields.slug)}`,
@@ -102,11 +102,11 @@ exports.createPages = ({actions, graphql}) => {
             })
         })
 
-        // Create Single Blog Page 
+        // Create Single Blog Page
 
-        // Start Category Area 
+        // Start Category Area
 
-        // For get All Categiry Pages 
+        // For get All Categiry Pages
         let categories = []
         _.each(posts , edge => {
             if (_.get(edge , 'node.frontmatter.category')) {
@@ -121,14 +121,14 @@ exports.createPages = ({actions, graphql}) => {
         })
         categories = _.uniq(categories)
 
-       
+
         // Create Tag Posts Pages for indivedual Tag page
         categories.forEach(category => {
             createPage({
                 path: `/category/${slugify(category)}`,
                 component: templates.categoryPost,
                 context: {
-                    category 
+                    category
                 }
             })
         })
@@ -136,7 +136,7 @@ exports.createPages = ({actions, graphql}) => {
 
 
 
-        // Start Tags Pages 
+        // Start Tags Pages
         let tags = []
         _.each(posts , edge => {
             if (_.get(edge , 'node.frontmatter.tags')) {
@@ -157,7 +157,7 @@ exports.createPages = ({actions, graphql}) => {
 
 
 
-        // Start Create Authors Page 
+        // Start Create Authors Page
         let authors = []
         _.each(posts, edge => {
             if(_.get(edge, 'node.fields.authorId')){
@@ -176,16 +176,4 @@ exports.createPages = ({actions, graphql}) => {
         })
         // End Create Authors Page
 
-
-
-
-
-    })
-
 }
-
-
-
-
-
-

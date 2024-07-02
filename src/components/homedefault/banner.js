@@ -11,8 +11,8 @@ import bannerImage3 from '../images/banner/bg-image-05.jpg';
 const Banner = () => {
     const banenrQueryData = useStaticQuery (graphql`
         query BannerDefaultQuery {
-                homedefaultJson(id: {eq: "main-banner"}) {
-                title    
+                homedefaultJson(jsonId: {eq: "main-banner"}) {
+                title
                 subtitle
                 bgImage {
                     childImageSharp {
@@ -33,7 +33,7 @@ const Banner = () => {
             }
         }
     `);
-      
+
     // const BannerImages = banenrQueryData.homedefaultJson.bgImage.childImageSharp.fluid;
     const PortfolioImages = banenrQueryData.file.childImageSharp.fixed;
     const Title = banenrQueryData.homedefaultJson.title;
@@ -72,7 +72,7 @@ const Banner = () => {
             {/* End Single Slider  */}
             <div className="thumbnail">
                 <Slider {...settings}>
-                    
+
                     <div className="thumbnail-inner">
                         <img src={bannerImage2} alt="Testimonail Images" />
                     </div>
@@ -81,7 +81,7 @@ const Banner = () => {
                     </div>
                 </Slider>
             </div>
-           
+
         </div>
     )
 }

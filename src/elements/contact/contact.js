@@ -6,7 +6,7 @@ import GooglemapRn from "./googlemap";
 const Contact = () => {
     const contactData = useStaticQuery(graphql`
         query contactDataQuery {
-            homedefaultJson(id: {eq: "contactus"}) {
+            homedefaultJson(jsonId: {eq: "contactus"}) {
                 title
                 subtitle
             }
@@ -21,7 +21,7 @@ const Contact = () => {
     const Title = contactData.homedefaultJson.title;
     const { site: { siteMetadata: { getform_url } } } = contactData;
     return (
-        <div className="rn-contact-area rn-section-gapBottom pt--200 bg-color-white" id="contact"> 
+        <div className="rn-contact-area rn-section-gapBottom pt--200 bg-color-white" id="contact">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">

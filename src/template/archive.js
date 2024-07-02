@@ -27,15 +27,15 @@ const Archive = ({data , pageContext}) => {
                     <div className="row row--25">
                         {authorblogs.map(blog => (
                             <div className="col-lg-4 col-md-6 col-12" key={blog.node.fields.slug}>
-                                <Post 
+                                <Post
                                     content={{
-                                        ...blog.node.fields, 
+                                        ...blog.node.fields,
                                         ...blog.node.frontmatter,
                                         excerpt: blog.node.excerpt
                                     }}
                                 />
-                            </div>  
-                            
+                            </div>
+
                         ))}
                     </div>
                 </div>
@@ -48,8 +48,8 @@ const Archive = ({data , pageContext}) => {
 export const allauthorQueryData = graphql`
     query allauthorQuery($author: String!){
         allMarkdownRemark (
-            sort: {fields: frontmatter___date, order: DESC}
-            filter: {fields: {authorId: {eq: $author}}}
+          sort: {frontmatter: {date: DESC}}
+          filter: {fields: {authorId: {eq: $author}}}
         ){
         totalCount
         edges {

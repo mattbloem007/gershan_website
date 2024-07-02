@@ -5,7 +5,7 @@ import Blog from "./blog";
 const BlogPost = () => {
     const blogQueryData = useStaticQuery(graphql`
         query BlogListQuery {
-            allMarkdownRemark (limit: 3, sort: {order: DESC, fields: frontmatter___date}) {
+            allMarkdownRemark (limit: 3, sort: {frontmatter: {date: DESC}}) {
                 edges {
                     node {
                         fields {
@@ -30,7 +30,7 @@ const BlogPost = () => {
                                 }
                             }
                         }
-                        
+
                     }
                 }
             }
@@ -49,7 +49,7 @@ const BlogPost = () => {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className="row row--30">
                     {blogs.map(blog => (
                         <div className="col-lg-4 col-md-6 col-12 wow fadeInDown" data-wow-delay="200ms" data-wow-duration="0.8s" key={blog.node.fields.slug}>

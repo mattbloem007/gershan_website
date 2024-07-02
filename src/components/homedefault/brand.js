@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 const Brand = () => {
     const brandQueryData = useStaticQuery(graphql`
         query brandQuery {
-            homedefaultJson(id: {eq: "brand"}) {
+            homedefaultJson(jsonId: {eq: "brand"}) {
                 brandGroup {
                     image {
                         childImageSharp {

@@ -31,7 +31,7 @@ const categoryPostList = ({data , pageContext}) => {
                         {categoryblogs.map((blog) => (
                         <Post column="col-lg-4 col-md-6 col-12" key={blog.node.fields.slug}
                                 content={{
-                                    ...blog.node.fields, 
+                                    ...blog.node.fields,
                                     ...blog.node.frontmatter,
                                     excerpt: blog.node.excerpt
                                 }}
@@ -48,7 +48,7 @@ const categoryPostList = ({data , pageContext}) => {
 export const allCategoryQueryData = graphql`
     query allCategoryQuery ($category: String){
         allMarkdownRemark (
-            sort: {fields: frontmatter___date, order: DESC}
+            sort: {frontmatter: {date: DESC}}
             filter: {frontmatter: {category: { in: [$category]}}}
         ){
         totalCount

@@ -6,7 +6,7 @@ import { Controller, Scene } from 'react-scrollmagic-r18';
 const About = ( ) => {
     const aboutQueryData = useStaticQuery(graphql`
         query AboutDefaultQuery {
-            homedefaultJson (id: {eq: "about"}) {
+            homedefaultJson (jsonId: {eq: "about"}) {
                 title
                 description
                 subtitle
@@ -24,7 +24,7 @@ const About = ( ) => {
             }
         }
     `);
-
+    console.log(aboutQueryData)
     const title = aboutQueryData.homedefaultJson.title;
     const Subtitle = aboutQueryData.homedefaultJson.subtitle;
     const description = aboutQueryData.homedefaultJson.description;
