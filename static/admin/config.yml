@@ -50,7 +50,7 @@ collections:
     files:
       - name: 'main-banner'
         label: 'Banner'
-        file: 'src/data/main-banner.json'
+        file: 'src/data/main-banner.md'
         description: 'Main Banner info'
         fields:
           - { label: 'Title', name: 'site_title', widget: 'string' }

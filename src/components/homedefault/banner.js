@@ -9,24 +9,24 @@ import bannerImage3 from '../images/banner/bg-image-05.jpg';
 
 
 const Banner = () => {
-    const banenrQueryData = useStaticQuery (graphql`
-        query BannerDefaultQuery {
-          mainBannerJson{
-            title
-            subtitle
-            bgImage {
-              childImageSharp{
-                gatsbyImageData
-              }
-            }
-          }
-        }
-    `);
+    // const banenrQueryData = useStaticQuery (graphql`
+    //     query BannerDefaultQuery {
+    //       mainBannerJson{
+    //         title
+    //         subtitle
+    //         bgImage {
+    //           childImageSharp{
+    //             gatsbyImageData
+    //           }
+    //         }
+    //       }
+    //     }
+    // `);
 
     // const BannerImages = banenrQueryData.homedefaultJson.bgImage.childImageSharp.fluid;
     //const PortfolioImages = banenrQueryData.file.childImageSharp.fixed;
-    const Title = banenrQueryData.mainBannerJson.title;
-    const SubTitle = banenrQueryData.mainBannerJson.subtitle;
+    const Title = "banenrQueryData.mainBannerJson.title";
+    const SubTitle = "banenrQueryData.mainBannerJson.subtitle";
 
 
 
