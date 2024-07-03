@@ -1,0 +1,61 @@
+[
+  {
+    "id": "about",
+    "title": "Bernard Sydney",
+    "subtitle": "Creative Web & App Developer",
+    "description": "My name is Bernard Sydney. I am a Web Developer, and I'm very passionate and dedicated to my work.",
+    "description2": "With 20 years experience as a professional Web developer, I have acquired the skills and knowledge necessary to make your project a success. I enjoy every step of the design process, from discussion and collaboration.",
+    "downloadButton": "Download CV",
+    "linkBUtton": "Send Message",
+    "aboutData": [
+        {
+            "id": "aboutinfo-1",
+            "iconName": "FiArrowRightCircle",
+            "label": "Birthday",
+            "value": "01.07.1990"
+        },
+        {
+            "id": "aboutinfo-2",
+            "iconName": "icon",
+            "label": "Age",
+            "value": "29"
+        },
+        {
+            "id": "aboutinfo-3",
+            "iconName": "icon",
+            "label": "Location",
+            "value": "Ave 11, New York, USA"
+        },
+        {
+            "id": "aboutinfo-3",
+            "iconName": "icon",
+            "label": "Interests",
+            "value": "PlayStation, Reading"
+        },
+        {
+            "id": "aboutinfo-3",
+            "iconName": "icon",
+            "label": "Study",
+            "value": "University of Chicago"
+        },
+        {
+            "id": "aboutinfo-4",
+            "iconName": "icon",
+            "label": "Degree",
+            "value": "Master"
+        },
+        {
+            "id": "aboutinfo-5",
+            "iconName": "icon",
+            "label": "Mail",
+            "value": "mymail@gmail.com"
+        },
+        {
+            "id": "aboutinfo-6",
+            "iconName": "icon",
+            "label": "Phone",
+            "value": "+77 022 177 05 05"
+        }
+    ]
+  }
+]

@@ -5,3 +5,13 @@
  */
 
 // You can delete this file if you're not using it
+export function onRenderBody(
+  { setHeadComponents,
+    setPreBodyComponents,
+  }
+) {
+ setHeadComponents([
+   <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  ])
+}

@@ -2,13 +2,13 @@ backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
 
-media_folder: static/img
-public_folder: /img
+media_folder: static/media
+public_folder: /media
 
 collections:
   - name: 'blog'
     label: 'Blog'
-    folder: 'content/blog'
+    folder: 'src/data/blogs'
     create: true
     slug: 'index'
     media_folder: ''
@@ -19,7 +19,9 @@ collections:
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Format', name: 'format', widget: 'select', options: [{ label: "Image", value: "image" }] }
+      - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Category', name: 'category', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
 
   - name: 'offering'
@@ -48,7 +50,7 @@ collections:
     files:
       - name: 'main-banner'
         label: 'Banner'
-        file: '_bannerContent'
+        file: 'src/data/main-banner.json'
         description: 'Main Banner info'
         fields:
           - { label: 'Title', name: 'site_title', widget: 'string' }
@@ -58,7 +60,7 @@ collections:
 
       - name: 'about'
         label: 'About'
-        file: '_aboutContent'
+        file: 'src/data/about.json'
         description: 'About content'
         fields:
           - { label: 'Title', name: 'about_title', widget: 'string' }
@@ -68,14 +70,14 @@ collections:
 
       - name: 'offerings_title'
         label: 'Offerings Title'
-        file: '_offeringsTitle'
+        file: 'src/data/offeringsTitle.json'
         description: 'Offerings Title'
         fields:
           - { label: 'Title', name: 'offerings_title', widget: 'string' }
 
       - name: 'testimonials'
         label: 'Testimonials'
-        file: '_testimonials'
+        file: 'src/data/testimonials.json'
         description: 'Testimonial Content'
         fields:
           - { label: 'Title', name: 'testimonial_title', widget: 'string' }
@@ -87,7 +89,7 @@ collections:
 
       - name: 'contact'
         label: 'Contact'
-        file: '_contact'
+        file: 'src/data/contact.json'
         description: 'Contact content'
         fields:
           - { label: 'Title', name: 'contact_title', widget: 'string' }

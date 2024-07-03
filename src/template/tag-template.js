@@ -45,10 +45,9 @@ const TagTemplate = ({data , pageContext}) => {
 }
 
 export const allTagQueryData = graphql`
-    query allTagQuery ($tag: String!){
+    query allTagQuery {
         allMarkdownRemark (
             sort: {frontmatter: {date: DESC}}
-            filter: {frontmatter: {tags: { in: [$tag]}}}
         ){
         totalCount
         edges {
@@ -56,15 +55,10 @@ export const allTagQueryData = graphql`
             id
             fields {
                 slug
-                authorId
             }
             excerpt
             frontmatter {
-                author {
-                    name
-                }
                 title
-                tags
                 format
                 date(formatString: "MMM Do, YYYY")
                 category

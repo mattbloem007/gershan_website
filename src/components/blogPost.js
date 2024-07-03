@@ -13,9 +13,6 @@ const BlogPost = () => {
                         }
                         excerpt(pruneLength: 83, format: PLAIN, truncate: true)
                         frontmatter {
-                            author {
-                                name
-                            }
                             title
                             date(formatString: "MMM Do, YYYY")
                             format

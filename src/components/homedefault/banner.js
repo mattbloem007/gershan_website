@@ -11,38 +11,27 @@ import bannerImage3 from '../images/banner/bg-image-05.jpg';
 const Banner = () => {
     const banenrQueryData = useStaticQuery (graphql`
         query BannerDefaultQuery {
-                homedefaultJson(jsonId: {eq: "main-banner"}) {
-                title
-                subtitle
-                bgImage {
-                    childImageSharp {
-                        fluid(quality: 100, maxWidth: 1920, maxHeight: 850) {
-                            ...GatsbyImageSharpFluid_withWebp
-                            presentationHeight
-                            presentationWidth
-                        }
-                    }
-                }
-            },
-            file(relativePath: {eq: "images/banner/bg-image-02.jpg"}) {
-                childImageSharp {
-                  fixed (quality: 100, width: 1250, height: 950) {
-                    ...GatsbyImageSharpFixed
-                  }
-                }
+          mainBannerJson{
+            title
+            subtitle
+            bgImage {
+              childImageSharp{
+                gatsbyImageData
+              }
             }
+          }
         }
     `);
 
     // const BannerImages = banenrQueryData.homedefaultJson.bgImage.childImageSharp.fluid;
-    const PortfolioImages = banenrQueryData.file.childImageSharp.fixed;
-    const Title = banenrQueryData.homedefaultJson.title;
-    const SubTitle = banenrQueryData.homedefaultJson.subtitle;
+    //const PortfolioImages = banenrQueryData.file.childImageSharp.fixed;
+    const Title = banenrQueryData.mainBannerJson.title;
+    const SubTitle = banenrQueryData.mainBannerJson.subtitle;
 
 
 
     const settings = {
-        dots: false,
+        dots: true,
         infinite: true,
         speed: 1000,
         adaptiveHeight: true,
