@@ -57,10 +57,15 @@ export const allCategoryQueryData = graphql`
             id
             fields {
                 slug
+                authorId
             }
             excerpt
             frontmatter {
+                author {
+                    name
+                }
                 title
+                tags
                 format
                 date(formatString: "MMM Do, YYYY")
                 category

@@ -1,10 +1,15 @@
 ---
-title: 'As Vintage decided to have a closer look New York.'
+title: 'As Vintage decided to have a closer look int.'
 date: "2020-02-04 05:00:00"
+author: 'Rainbow'
 format: 'image'
 image: '../images/blog/blog-4.jpg'
 category: Technology
-
+tags: 
+    - react
+    - gatsby
+    - styled components
+is_featured: true
 ---
 As Vintage decided to have a closer look into fast-paced New York web design realm in person, we get to acquaint with most diverse and exceptionally captivating personalities. We encounter professionals with careers to covet and lives to write books about.
 As Vintage decided to have a closer look into fast-paced New York web design realm in person, we get to acquaint with most diverse and exceptionally captivating personalities. We encounter professionals with careers to covet and lives to write books about. We thought a book is quite a wait away and decided to share some of the notes from his New York business meetings meanwhile.

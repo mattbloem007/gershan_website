@@ -7,11 +7,11 @@ import Layout from "../components/layout";
 
 const BlogDetails = ({data, pageContext}) => {
     const {
-        title , image, category
+        title , image, tags, category
     } = data.markdownRemark.frontmatter;
     const imageSrc = image.childImageSharp;
     const {html} = data.markdownRemark;
-
+    
     const baseUrl = 'https://gatsbytutorial.co.uk/'
     const disqusShortname = 'https-gatsbytutorial-co-uk';
     const disqusConfig = {
@@ -35,7 +35,7 @@ const BlogDetails = ({data, pageContext}) => {
                             <div className="tag-list d-flex align-items-center">
                                 <span>Tags:</span>
                                 <div className="tags-cloud">
-                                    {tags && tags.map((tag) => (
+                                    {tags.map((tag) => (
                                         <a key={tag} href={`/tag/${slugify(tag)}`}>{tag}</a>
                                     ))}
                                 </div>
@@ -50,8 +50,8 @@ const BlogDetails = ({data, pageContext}) => {
                                     <h3>Share This Post</h3>
                                     <ul className="social-share-links liststyle d-flex justify-content-center">
                                         <li>
-                                            <a className="facebook" target="_blank" rel="noopener noreferrer" href={'https://www.facebook.com/sharer.php?u=' +
-                                            baseUrl +
+                                            <a className="facebook" target="_blank" rel="noopener noreferrer" href={'https://www.facebook.com/sharer.php?u=' + 
+                                            baseUrl + 
                                             pageContext.slug
                                             }>
                                                 <span>facebook</span>
@@ -59,8 +59,8 @@ const BlogDetails = ({data, pageContext}) => {
                                         </li>
 
                                         <li>
-                                            <a className="twitter" target="_blank" rel="noopener noreferrer" href={'https://www.twitter.com/share?url=' +
-                                            baseUrl +
+                                            <a className="twitter" target="_blank" rel="noopener noreferrer" href={'https://www.twitter.com/share?url=' + 
+                                            baseUrl + 
                                             pageContext.slug +
                                             '&text=' +
                                             title +
@@ -73,8 +73,8 @@ const BlogDetails = ({data, pageContext}) => {
                                         </li>
 
                                         <li>
-                                            <a className="google" target="_blank" rel="noopener noreferrer" href={'https://plus.google.com/share?url=' +
-                                            baseUrl +
+                                            <a className="google" target="_blank" rel="noopener noreferrer" href={'https://plus.google.com/share?url=' + 
+                                            baseUrl + 
                                             pageContext.slug
 
                                             }>
@@ -83,8 +83,8 @@ const BlogDetails = ({data, pageContext}) => {
                                         </li>
 
                                         <li>
-                                            <a className="linkedin" target="_blank" rel="noopener noreferrer" href={'https://www.linkedin.com/shareArticle?url=' +
-                                            baseUrl +
+                                            <a className="linkedin" target="_blank" rel="noopener noreferrer" href={'https://www.linkedin.com/shareArticle?url=' + 
+                                            baseUrl + 
                                             pageContext.slug
                                             }>
                                                 <span>linkedin</span>
@@ -97,7 +97,7 @@ const BlogDetails = ({data, pageContext}) => {
                                 <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
                             </div>
                         </div>
-                    </div>
+                    </div>   
                 </div>
             </div>
         </Layout>
@@ -113,10 +113,14 @@ query blogDetailsQuery ($slug: String!) {
             slug
         }
         frontmatter {
+            author {
+                name
+            }
             category
             title
             date(formatString: "MMM Do, YYYY")
             format
+            tags
             image {
                     childImageSharp {
                         fluid(quality: 100, maxHeight: 350, maxWidth: 510) {

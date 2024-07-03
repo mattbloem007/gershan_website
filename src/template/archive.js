@@ -46,9 +46,10 @@ const Archive = ({data , pageContext}) => {
 
 
 export const allauthorQueryData = graphql`
-    query allauthorQuery{
+    query allauthorQuery($author: String!){
         allMarkdownRemark (
           sort: {frontmatter: {date: DESC}}
+          filter: {fields: {authorId: {eq: $author}}}
         ){
         totalCount
         edges {
@@ -56,10 +57,15 @@ export const allauthorQueryData = graphql`
             id
             fields {
                 slug
+                authorId
             }
             excerpt
             frontmatter {
+                author {
+                    name
+                }
                 title
+                tags
                 format
                 date(formatString: "MMM Do, YYYY")
                 category
