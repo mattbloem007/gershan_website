@@ -5,7 +5,7 @@ import {useStaticQuery, graphql} from 'gatsby';
 const SkillTwo = () => {
     const skillTwoQueryData = useStaticQuery(graphql`
         query skillTwoQuery {
-            homedefaultJson(id: {eq: "skillTwo"}) {
+            homedefaultJson(jsonId: {eq: "skillTwo"}) {
             title
             description
             },

@@ -78,7 +78,6 @@ exports.createPages = async ({ graphql, actions }) => {
         if (result.errors) return Promise.reject(result.errors)
         const project = result.data.allProjectJson.edges
         const posts = result.data.allMarkdownRemark.edges
-
          // Create Project Page
          project.forEach(({ node }) => {
             createPage({
@@ -93,13 +92,15 @@ exports.createPages = async ({ graphql, actions }) => {
 
         // Create Single Blog Page
         posts.forEach(({ node }) => {
-            createPage({
-                path: `${slugify(node.fields.slug)}`,
-                component: templates.blogDetails,
-                context: {
-                    slug: node.fields.slug
-                }
-            })
+            if (node.fields.slug) {
+              createPage({
+                  path: `${slugify(node.fields.slug)}`,
+                  component: templates.blogDetails,
+                  context: {
+                      slug: node.fields.slug
+                  }
+              })
+            }  
         })
 
         // Create Single Blog Page

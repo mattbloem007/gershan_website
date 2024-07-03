@@ -9,7 +9,7 @@ import Particles from 'react-particles-js';
 const BannerParticles = () => {
     const banenrQueryData = useStaticQuery (graphql`
         query BannerDefaultQueryParticles {
-                homedefaultJson(id: {eq: "main-banner"}) {
+                homedefaultJson(jsonId: {eq: "main-banner"}) {
                 title
                 subtitle
                 bgImage {

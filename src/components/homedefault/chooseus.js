@@ -27,7 +27,7 @@ const chooseusdata = [
 const Chooseus = () => {
     const chooseusQueryData = useStaticQuery(graphql`
         query chooseusQueryQuery {
-            homedefaultJson(id: {eq: "chooseus"}) {
+            homedefaultJson(jsonId: {eq: "chooseus"}) {
                 imagegroup {
                     image {
                         childImageSharp {
@@ -70,11 +70,11 @@ const Chooseus = () => {
                                         </div>
                                     </div>
                                 ))}
-                            </div>  
-                        </div>  
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>    
+            </div>
         </div>
     )
 }
