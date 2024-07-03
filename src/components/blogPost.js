@@ -48,15 +48,17 @@ const BlogPost = () => {
                 </div>
 
                 <div className="row row--30">
-                    {blogs.map(blog => (
+                    {blogs.map(blog => {
+                      console.log("BLOGS", blog.node)
+                      return (
                         <div className="col-lg-4 col-md-6 col-12 wow fadeInDown" data-wow-delay="200ms" data-wow-duration="0.8s" key={blog.node.fields.slug}>
-                            <Blog
+                            {blog.node.frontmatter.image && <Blog
                                 image={blog.node.frontmatter.image.childImageSharp.fluid}
                                 title={blog.node.frontmatter.title}
                                 path={blog.node.fields.slug}
-                            />
+                            />}
                         </div>
-                    ))}
+                    )})}
                 </div>
             </div>
         </div>
