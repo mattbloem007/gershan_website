@@ -1,3 +1,8 @@
+local_backend:
+    url: http://localhost:8081/api/v1
+    allowed_hosts: ['192.168.0.1']
+
+
 backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
@@ -6,32 +11,14 @@ media_folder: static/media
 public_folder: /media
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'src/data/blogs'
-    create: true
-    slug: 'index'
-    media_folder: ''
-    public_folder: ''
-    path: '{{title}}/index'
-    editor:
-      preview: false
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Format', name: 'format', widget: 'select', options: [{ label: "Image", value: "image" }] }
-      - { label: 'Image', name: 'image', widget: 'image' }
-      - { label: 'Category', name: 'category', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-
   - name: 'offering'
-    label: 'Offering'
-    folder: '_offerings'
+    label: 'Offerings'
+    folder: 'src/data/project'
     create: true
     slug: 'index'
     media_folder: ''
     public_folder: ''
-    path: '{{title}}'
+    path: 'project/{{title}}'
     editor:
       preview: false
     fields:
@@ -41,6 +28,22 @@ collections:
       - { label: 'Featured Image', name: 'featured_image', widget: 'image' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
       - { label: 'Gallery', name: 'features', widget: 'image', choose_url: true, media_library: {config: {multiple: true, max_files: 999}}}
+
+  - name: 'testimonials'
+    label: 'Testimonials'
+    folder: 'src/data/testimonials'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Client Name', name: 'testimonial_title', widget: 'string' }
+      - { label: 'Client Company/Occupation', name: 'testimonial_subtitle', widget: 'string' }
+      - { label: 'Testimonial', name: 'body', widget: 'markdown' }
+      - { label: 'Testimonial Image', name: 'testimonial_image', widget: 'image' }
 
   - name: 'homepage'
     label: 'Home Page'
@@ -55,43 +58,111 @@ collections:
         fields:
           - { label: 'Title', name: 'site_title', widget: 'string' }
           - { label: 'Subtitle', name: 'site_subtitle', widget: 'string' }
-          - { label: 'Background Image', name: 'bg_image', widget: 'image' }
-          - { label: 'Profile Image', name: 'person-image', widget: 'image' }
+          - { label: 'Gallery', name: 'slider_images', widget: 'image', choose_url: true, media_library: {config: {multiple: true, max_files: 999}}}
+
 
       - name: 'about'
         label: 'About'
-        file: 'src/data/about.json'
+        file: 'src/data/about.md'
         description: 'About content'
         fields:
           - { label: 'Title', name: 'about_title', widget: 'string' }
           - { label: 'Subtitle', name: 'about_subtitle', widget: 'string' }
-          - { label: 'Description', name: 'description', widget: 'markdown' }
           - { label: 'Call To Action button', name: 'cta', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'About image', name: 'about_image', widget: 'image' }
+
+
 
       - name: 'offerings_title'
         label: 'Offerings Title'
-        file: 'src/data/offeringsTitle.json'
+        file: 'src/data/offeringsTitle.md'
         description: 'Offerings Title'
         fields:
           - { label: 'Title', name: 'offerings_title', widget: 'string' }
 
-      - name: 'testimonials'
-        label: 'Testimonials'
-        file: 'src/data/testimonials.json'
-        description: 'Testimonial Content'
-        fields:
-          - { label: 'Title', name: 'testimonial_title', widget: 'string' }
-          - { label: 'Subtitle', name: 'testimonial_subtitle', widget: 'string' }
-          - { label: 'Testimonial', name: 'testimonial_body', widget: 'markdown' }
-          - { label: 'Testimonial Image', name: 'testimonial_image', widget: 'image' }
-          - { label: 'Client Name', name: 'clientName', widget: 'string' }
-          - { label: 'Client Company/Occupation', name: 'clientCompany', widget: 'string' }
 
       - name: 'contact'
         label: 'Contact'
-        file: 'src/data/contact.json'
+        file: 'src/data/contact.md'
         description: 'Contact content'
         fields:
           - { label: 'Title', name: 'contact_title', widget: 'string' }
           - { label: 'Subtitle', name: 'contact_subtitle', widget: 'string' }
-          - { label: 'Description', name: 'description', widget: 'markdown' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - { label: 'Contact image', name: 'contact_image', widget: 'image' }
+
+  - name: 'footer'
+    label: 'Footer'
+    delete: false # Prevent users from deleting documents in this collection
+    editor:
+      preview: false
+    files:
+      - name: 'footer-data'
+        label: 'Footer data'
+        file: 'src/data/footer.md'
+        description: 'Main Footer info'
+        fields:
+          - { label: 'Title', name: 'footer_title', widget: 'string' }
+          - { label: 'Address', name: 'footer_address', widget: 'string' }
+          - { label: 'E-mail', name: 'footer_email', widget: 'string' }
+          - { label: 'Phone number', name: 'footer_number', widget: 'string' }
+          - { label: 'Facebook link', name: 'footer_fb_link', widget: 'string' }
+          - { label: 'Instagram link', name: 'footer_insta_link', widget: 'string' }
+
+
+
+  - name: 'settings'
+    label: 'Settings'
+    delete: false # Prevent users from deleting documents in this collection
+    editor:
+      preview: false
+    files:
+      - name: 'general'
+        label: 'Site Settings'
+        file: 'src/data/settings/settings.md'
+        media_folder: ''
+        public_folder: ''
+        description: 'General Site Settings'
+        fields:
+          - { label: 'Global title', name: 'site_title', widget: 'string' }
+          - { label: 'Site Logo', name: 'site_logo', widget: 'image'}
+
+          # - label: 'Post Settings'
+          #   name: posts
+          #   widget: 'object'
+          #   fields:
+          #     - {
+          #         label: 'Number of posts on frontpage',
+          #         name: front_limit,
+          #         widget: number,
+          #         min: 1,
+          #         max: 10,
+          #       }
+          #     - { label: 'Default Author', name: author, widget: string }
+          #     - {
+          #         label: 'Default Thumbnail',
+          #         name: thumb,
+          #         widget: image,
+          #         class: 'thumb',
+          #         required: false,
+          #       }
+
+  # - name: 'blog'
+  #   label: 'Blog'
+  #   folder: 'src/data/blogs'
+  #   create: true
+  #   slug: 'index'
+  #   media_folder: ''
+  #   public_folder: ''
+  #   path: 'blog/{{title}}'
+  #   editor:
+  #     preview: false
+  #   fields:
+  #     - { label: 'ID', name: 'id', widget: 'string' }
+  #     - { label: 'Title', name: 'title', widget: 'string' }
+  #     - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+  #     - { label: 'Format', name: 'format', widget: 'select', options: [{ label: "Image", value: "image" }] }
+  #     - { label: 'Image', name: 'image', widget: 'image' }
+  #     - { label: 'Category', name: 'category', widget: 'string' }
+  #     - { label: 'Body', name: 'body', widget: 'markdown' }

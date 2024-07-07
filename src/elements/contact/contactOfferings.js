@@ -4,7 +4,9 @@ import { useForm } from "react-hook-form";
 import emailjs from 'emailjs-com';
 
 
-const ContactForm = ({url}) => {
+
+const ContactOfferings = ({url, offerings}) => {
+
   const { register, handleSubmit, formState: { errors } } = useForm({
 		mode: "onBlur"
 	})
@@ -78,6 +80,8 @@ const ContactForm = ({url}) => {
 	const onChangeHandler = e => {
 		setValue({ ...value, [e.target.name]: e.target.value })
 	}
+  console.log("Offerings", offerings)
+
 
   return (
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -114,16 +118,23 @@ const ContactForm = ({url}) => {
           </div>
 
           <div className={`form-group ${(isErrors && errors.subject) ? 'has-error' : ''} ${value.subject ? 'has-value' : ''}`}>
-              <input
-                  type="text"
+              <select
                   name="subject"
                   id="subject"
                   {...register('subject', {
                     onChange: (e) => {onChangeHandler(e)},
                     required: 'Subject Required'
                   })}
-              />
-              <label htmlFor="subject">Subject</label>
+              >
+              <option></option>
+              {offerings && offerings.map((offering) => {
+                return (
+                  <option value={offering.node.frontmatter.title}>{offering.node.frontmatter.title}</option>
+                )
+              })}
+
+              </select>
+              <label htmlFor="subject">Offering</label>
               {errors.subject && <span className="error">{errors.subject.message}</span>}
           </div>
 
@@ -156,4 +167,4 @@ const ContactForm = ({url}) => {
   )
 }
 
-export default ContactForm;
+export default ContactOfferings;

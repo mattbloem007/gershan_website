@@ -6,10 +6,13 @@
     .title {
         text-transform: uppercase;
         font-weight: 900;
-        font-size: 35px;
+        font-size: 100px;
+        text-align: center;
         position: relative;
         line-height: 1.4;
         letter-spacing: .8px;
+        -webkit-text-stroke: 2px #000;
+        color: rgba(0,0,0,0.6);
         span {
             &.bg {
                 position: absolute;
@@ -42,4 +45,3 @@
         letter-spacing: 0px;
     }
 }
-

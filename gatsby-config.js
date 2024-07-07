@@ -16,11 +16,41 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+           resolve: `gatsby-remark-relative-images`,
+           options: {
+             // [Optional] The root of "media_folder" in your config.yml
+             // Defaults to "static"
+             staticFolderName: 'static',
+             // [Optional] Include the following fields, use dot notation for nested fields
+             // All fields are included by default
+             include: ['featured', 'bg_image', 'image'],
+             // [Optional] Exclude the following fields, use dot notation for nested fields
+             // No fields are excluded by default
+             exclude: ['featured.skip'],
+           },
+         },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1920
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/assets/images/`,
+        path: `${__dirname}/static/media`,
       },
     },
     {
@@ -35,11 +65,11 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
           fonts: [
-            `Montserrat ital`,
+            `Arsenal ital`,
             `sans-serif\:300`, `300i`, `400`, `400i`, `500`, `600`, `700`, `900`
         ],
         fonts: [
-          `Mulish`,
+          `Merienda`,
           `sans-serif\:300`, `400`, `500`, `600`, `700`
         ],
         display: 'swap',
@@ -55,7 +85,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/data/images/logo/logo.png`, // This path is relative to the root of the site.
+        icon: `src/data/settings/logo.png`, // This path is relative to the root of the site.
       },
     },
 
@@ -65,23 +95,6 @@ module.exports = {
           offset: -100
         }
     },
-
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 1920
-            },
-          },
-        ],
-      },
-    },
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-image`,
     `gatsby-plugin-sass`,
     `gatsby-transformer-json`,
 

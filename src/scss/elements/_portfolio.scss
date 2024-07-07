@@ -1,9 +1,11 @@
 /*--------------------
-Portfolio Styles 
+Portfolio Styles
 ----------------------*/
 .portfolio-style-1 {
     .section-title {
         .title {
+          font-size: 100px;
+          text-align: center;
             span {
                 &.bg {
                     position: absolute;
@@ -112,7 +114,7 @@ Portfolio Styles
                         }
                     }
                 }
-                
+
             }
         }
     }
@@ -126,15 +128,14 @@ Portfolio Styles
         }
         .content {
             .inner {
-                .title{ 
-                    
+                .title{
+
                 }
                 .category {
-                    
+
                 }
             }
-            
+
         }
     }
 }
-

@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 import {useStaticQuery, graphql , Link} from 'gatsby';
 import Img from "gatsby-image";
 import Scrollspy from 'react-scrollspy';
+import {GatsbyImage} from 'gatsby-plugin-image'
 
-// Start Header Area 
+// Start Header Area
 const Header = () => {
 
-    
+
     const headerQuery = useStaticQuery(graphql`
         query headerQuery {
             allMenuJson {
@@ -16,12 +17,14 @@ const Header = () => {
                     path
                 }
             },
-            file(relativePath: {eq: "images/logo/logo.png"}) {
-                childImageSharp {
-                    fixed (quality: 100, width: 70, height: 35) {
-                        ...GatsbyImageSharpFixed
-                    }
+            markdownRemark(frontmatter: {id: {eq: "settings"}}) {
+              frontmatter {
+                site_logo {
+                  childImageSharp {
+                    gatsbyImageData(layout: FIXED, width: 70, height: 35)
+                  }
                 }
+              }
             }
         }
     `);
@@ -33,7 +36,7 @@ const Header = () => {
         })
     }, [])
 
-    const waxonLogo = headerQuery.file.childImageSharp.fixed;
+    const Logo = headerQuery.markdownRemark.frontmatter.site_logo.childImageSharp.gatsbyImageData;
 
     return (
         <Fragment>
@@ -47,7 +50,7 @@ const Header = () => {
                                 <div className="header-left">
                                     <div className="logo">
                                         <Link to="/">
-                                            <Img fixed={waxonLogo}  />
+                                            <GatsbyImage image={Logo}  />
                                         </Link>
                                     </div>
                                 </div>
@@ -73,7 +76,7 @@ const Header = () => {
                                                 </span>
                                             </a>
                                         </li>
-                                        
+
                                         <li>
                                             <a className="menu-hover-link" href="/#portfolio">
                                                 <span className="hover-item">
@@ -97,24 +100,24 @@ const Header = () => {
                                                 </span>
                                             </a>
                                         </li>
-                                        
+
                                     </Scrollspy>
                                 </div>
                             </div>
                             {/* End Mainmenu Area  */}
                         </div>
                     </div>
-                    
 
-                    
-                    
+
+
+
                 </div>
             </header>
-           
+
         </Fragment>
     )
 }
-// End Header Area 
+// End Header Area
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

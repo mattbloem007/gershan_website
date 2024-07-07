@@ -1,11 +1,12 @@
 ---
+id: '2'
 title: 'As Vintage decided to have a closer look into.'
 date: "2020-02-05 05:00:00"
 author: 'Rainbow'
 format: 'image'
 image: '../images/blog/blog-2.jpg'
 category: Graphics
-tags: 
+tags:
     - react
     - gatsby
     - Themeforest

@@ -1,5 +1,5 @@
 /*-------------------------
-    Banner Styles  
+    Banner Styles
 ---------------------------*/
 
 .banner-fixed-height {
@@ -21,7 +21,7 @@
 
 
 /*---------------------------
-    Sldier Style One  
+    Sldier Style One
 ----------------------------*/
 .rn-slide {
     position: relative;
@@ -42,7 +42,7 @@
                     width: 200px;
                     height: 200px;
                     margin-bottom: 43px;
-                    
+
                     &::after {
                         position: absolute;
                         content: "";
@@ -59,11 +59,11 @@
                         border-radius: 100%;
                     }
                 }
-               
+
                 .title {
                     line-height: 1.4;
-                    -webkit-text-stroke: 1px #000;
-                    color: transparent;
+                    -webkit-text-stroke: 4px #000;
+                    color: rgba(0,0,0,0.6);
                     font-size: 120px;
                     font-weight: 900;
                     text-transform: uppercase;
@@ -106,10 +106,10 @@
                         }
                     }
                 }
-                
+
                 .subtitle {
                     color: #333;
-                    font-size: 15px;
+                    font-size: 20px;
                     line-height: 2.1;
                     letter-spacing: .8px;
                     font-weight: 600;
@@ -131,8 +131,9 @@
         top: 0;
         right: 0;
         height: 100%;
-        width: 62%;
-        
+        width: 100%;
+        opacity: 0.7;
+
         @media #{$md-layout} {
             width: 70%;
         }
@@ -153,7 +154,7 @@
                 opacity: 0.5;
             }
         }
-       
+
         @media #{$md-layout} {
             height: 100% !important;
         }
@@ -193,7 +194,7 @@
 }
 
 
-// Slick SLider Js 
+// Slick SLider Js
 .rn-slider-area .slick-dots li button {
     cursor: pointer;
 }
@@ -212,7 +213,3 @@
 .rn-slider-area .slick-initialized .slick-slide {
     margin-bottom: 0;
 }
-
-
-
-

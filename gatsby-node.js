@@ -2,10 +2,13 @@
 const { slugify } = require('./src/utils/utilityFunctions');
 const path = require('path');
 const _ = require('lodash');
+const {fmImagesToRelative} = require('gatsby-remark-relative-images')
 
 
 exports.onCreateNode = ({node , actions}) => {
     const { createNodeField } = actions;
+    fmImagesToRelative(node)
+
     if (node.internal.type === 'MarkdownRemark') {
         const slugFromTitle = slugify(node.frontmatter.title)
         createNodeField({
@@ -45,28 +48,23 @@ exports.createPages = async ({ graphql, actions }) => {
 
     const result = await graphql(`
         {
-            allProjectJson {
-                edges {
-                    node {
-                        id
-                    }
+          projects: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/project/"}}) {
+            edges {
+              node {
+                frontmatter {
+                  id
+                  title
                 }
+              }
             }
+          }
 
 
-            allMarkdownRemark {
+            posts: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/blogs/"}}) {
                 edges {
                     node {
-                        fields {
-                            slug
-                            authorId
-                        }
                         frontmatter {
-                            author {
-                                name
-                            }
-                            tags
-                            category
+                            id
                         }
                     }
                 }
@@ -76,31 +74,31 @@ exports.createPages = async ({ graphql, actions }) => {
         }
     `)
         if (result.errors) return Promise.reject(result.errors)
-        const project = result.data.allProjectJson.edges
-        const posts = result.data.allMarkdownRemark.edges
+        const project = result.data.projects.edges
+        const posts = result.data.posts.edges
          // Create Project Page
          project.forEach(({ node }) => {
             createPage({
                 // path: node.fields.slug,
-                path: `project/${slugify(node.id)}`,
+                path: `project/${slugify(node.frontmatter.title)}`,
                 component: templates.projectDetails,
                 context: {
-                    id: node.id
+                    id: node.frontmatter.id
                 }
             })
         })
 
         // Create Single Blog Page
         posts.forEach(({ node }) => {
-            if (node.fields.slug) {
+            if (node.frontmatter.id) {
               createPage({
-                  path: `${slugify(node.fields.slug)}`,
+                  path: `blog/${slugify(node.frontmatter.id)}`,
                   component: templates.blogDetails,
                   context: {
-                      slug: node.fields.slug
+                      id: node.frontmatter.id
                   }
               })
-            }  
+            }
         })
 
         // Create Single Blog Page

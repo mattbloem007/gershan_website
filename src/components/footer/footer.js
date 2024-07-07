@@ -1,5 +1,6 @@
 import React, {useState , useEffect} from 'react';
 import { FaFacebookF, FaLinkedinIn, FaTwitter, FaInstagram, FaSkype, FaVimeo } from "react-icons/fa";
+import {useStaticQuery, graphql} from 'gatsby';
 
 
 const Footer = ({showBelow}) => {
@@ -23,6 +24,23 @@ const Footer = ({showBelow}) => {
     const handleClick = () => {
         window[`scrollTo`]({top: 0, behavior: `smooth`})
     }
+
+    const footerQueryData = useStaticQuery (graphql`
+        query FooterDefaultQuery {
+          markdownRemark(frontmatter: {id: {eq: "footer"}}) {
+            frontmatter {
+              footer_title
+              footer_address
+              footer_email
+              footer_number
+              footer_fb_link
+              footer_insta_link
+            }
+          }
+        }
+    `);
+
+    const footerData = footerQueryData.markdownRemark.frontmatter
     return (
         <footer className="rn-footer-area bg-color-black pt--90 pb--60">
             <div className="footer-wrapper">
@@ -30,33 +48,29 @@ const Footer = ({showBelow}) => {
                     <div className="row">
                         <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--30 mt_sm--30 wow fadeInDown" data-wow-delay="200ms" data-wow-duration="0.1s">
                             <div className="ft-info">
-                                <p>WAXON <br />PORTFOLIO TEMPLATE</p>
+                                <p>{footerData.footer_title}</p>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--30 mt_sm--30 wow fadeInDown" data-wow-delay="200ms" data-wow-duration="0.2s">
                             <div className="ft-info">
-                                <p>Rainbow 103, <br />0021 New York, USA</p>
+                                <p>{footerData.footer_address}</p>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--30 mt_sm--30 wow fadeInDown" data-wow-delay="200ms" data-wow-duration="0.4s">
                             <div className="ft-info">
-                                <p>hi@waxon.com<br />+77 033 442 55 57</p>
+                                <p>{footerData.footer_email}<br />{footerData.footer_number}</p>
                             </div>
                         </div>
 
                         <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--30 mt_sm--30 wow fadeInDown" data-wow-delay="200ms" data-wow-duration="0.6s">
                             <div className="ft-info">
                                 <ul className="social-share">
-                                    <li><a href="#link"><FaFacebookF /></a></li>
-                                    <li><a href="#link"><FaLinkedinIn /></a></li>
-                                    <li><a href="#link"><FaTwitter /></a></li>
-                                    <li><a href="#link"><FaInstagram /></a></li>
-                                    <li><a href="#link"><FaSkype /></a></li>
-                                    <li><a href="#link"><FaVimeo /></a></li>
+                                    <li><a target="_blank" href={footerData.footer_fb_link}><FaFacebookF /></a></li>
+                                    <li><a target="_blank" href={footerData.footer_insta_link}><FaInstagram /></a></li>
                                 </ul>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

@@ -6,15 +6,18 @@ import ProjectOne from "../../elements/project/projectOne";
 const Project = () => {
     const portfolioData = useStaticQuery(graphql`
         query portfolioDataQuery {
-            homedefaultJson(jsonId: {eq: "portfolio"}) {
-            title
-            description
+          markdownRemark(frontmatter: {id: {eq: "portfolio"}}) {
+            frontmatter {
+              id
+              title
             }
+            html
+          }
         }
     `);
 
-    const Title = portfolioData.homedefaultJson.title;
-    const Description = portfolioData.homedefaultJson.description;
+    const Title = portfolioData.markdownRemark.frontmatter.title;
+    const Description = portfolioData.markdownRemark.html;
     return (
         <div className="rn-portfolio-area pt--200 pb--150 bg-color-grey portfolio-style-1">
             <div className="container">
@@ -23,19 +26,18 @@ const Project = () => {
                         <div className="section-title">
                             <h3 className="title">
                                 {Title}
-                                <span className="bg">Portfolio</span>
                             </h3>
                         </div>
                     </div>
                 </div>
                 <ProjectOne />
-                <div className="row">
+                {/**<div className="row">
                     <div className="col-lg-12">
                         <div className="button-group mt--60 justify-content-center">
                             <a className="rn-button" href="#downloadbutton"><span>View All Works</span></a>
                         </div>
                     </div>
-                </div>
+                </div>*/}
             </div>
         </div>
     )

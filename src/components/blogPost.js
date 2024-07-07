@@ -5,7 +5,7 @@ import Blog from "./blog";
 const BlogPost = () => {
     const blogQueryData = useStaticQuery(graphql`
         query BlogListQuery {
-            allMarkdownRemark (limit: 3, sort: {frontmatter: {date: DESC}}) {
+            allMarkdownRemark (filter: {fileAbsolutePath: {regex: "/blogs/"}}, sort: {frontmatter: {date: DESC}}) {
                 edges {
                     node {
                         fields {
@@ -42,7 +42,7 @@ const BlogPost = () => {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="section-title mb--40">
-                            <h2 className="title">Latest News <span className="bg">News</span></h2>
+                            <h2 className="title">News</h2>
                         </div>
                     </div>
                 </div>

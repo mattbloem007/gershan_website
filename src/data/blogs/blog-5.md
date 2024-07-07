@@ -1,11 +1,12 @@
 ---
+id: '5'
 title: 'Write books about. We thought a book is quite a wait away'
 date: "2020-02-09 05:00:00"
 author: 'Rainbow'
 format: 'image'
 image: '../images/blog/blog-5.jpg'
 category: Technology
-tags: 
+tags:
     - react
     - gatsby
     - styled components

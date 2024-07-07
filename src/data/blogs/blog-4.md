@@ -1,11 +1,12 @@
 ---
+id: '4'
 title: 'As Vintage decided to have a closer look int.'
 date: "2020-02-04 05:00:00"
 author: 'Rainbow'
 format: 'image'
 image: '../images/blog/blog-4.jpg'
 category: Technology
-tags: 
+tags:
     - react
     - gatsby
     - styled components

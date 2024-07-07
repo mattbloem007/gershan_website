@@ -1,38 +1,32 @@
 import React from 'react'
 import {useStaticQuery, graphql} from 'gatsby';
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Controller, Scene } from 'react-scrollmagic-r18';
 
 const About = ( ) => {
     const aboutQueryData = useStaticQuery(graphql`
         query AboutDefaultQuery {
-            homedefaultJson (jsonId: {eq: "about"}) {
-                title
-                description
-                subtitle
-                description2
-                downloadButton
-                linkBUtton
-
-            },
-            file(relativePath: {eq: "images/banner/person-image.jpg"}) {
+          markdownRemark(frontmatter: {id: {eq: "about"}}) {
+            frontmatter {
+              about_title
+              about_subtitle
+              cta
+              about_image {
                 childImageSharp {
-                  fixed (quality: 100, width: 518, height: 480) {
-                    ...GatsbyImageSharpFixed
-                  }
+                  gatsbyImageData(layout: FULL_WIDTH)
                 }
+              }
             }
+            html
+          }
         }
     `);
     console.log(aboutQueryData)
-    const title = aboutQueryData.homedefaultJson.title;
-    const Subtitle = aboutQueryData.homedefaultJson.subtitle;
-    const description = aboutQueryData.homedefaultJson.description;
-    const description2 = aboutQueryData.homedefaultJson.description2;
-    const downloadButton = aboutQueryData.homedefaultJson.downloadButton;
-    const linkBUtton = aboutQueryData.homedefaultJson.linkBUtton;
-    const PortfolioImages = aboutQueryData.file.childImageSharp.fixed;
-
+    const title = aboutQueryData.markdownRemark.frontmatter.about_title;
+    const Subtitle = aboutQueryData.markdownRemark.frontmatter.about_subtitle;
+    const description = aboutQueryData.markdownRemark.html;
+    const downloadButton = aboutQueryData.markdownRemark.frontmatter.cta;
+    const AboutImage = aboutQueryData.markdownRemark.frontmatter.about_image.childImageSharp.gatsbyImageData
 
     return (
         <div className="rb-about-area about-style rn-section-gap bg-color-white" id="about">
@@ -40,14 +34,9 @@ const About = ( ) => {
                 <div className="row row--45 align-items-center">
                     <div className="col-lg-5">
                         <div className="thumbnail">
-                            <div className="trigger" id="trigger2" />
-                            <Controller>
-                                <Scene classToggle="animated" triggerElement="#trigger2" triggerHook="onCenter">
-                                    <div className="rn_surface story-image">
-                                        <Img className="about-images" fixed={PortfolioImages} />
+                                    <div className="story-image">
+                                        <GatsbyImage className="about-images" image={AboutImage} />
                                     </div>
-                                </Scene>
-                            </Controller>
                         </div>
                     </div>
                     <div className="col-lg-7">
@@ -55,15 +44,14 @@ const About = ( ) => {
                             <div className="content">
                                 <div className="section-title">
                                     <div className="title-wrap">
-                                        <h3 className="title wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms">{title}<span className="bg">About</span></h3>
+                                        <h3 className="title wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms">About</h3>
                                         {title && <h4 className="subtitle wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms" dangerouslySetInnerHTML={{ __html: Subtitle }}></h4>}
                                     </div>
 
                                     {description && <p className="description wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms" dangerouslySetInnerHTML={{ __html: description }}></p>}
-                                    {description && <p className="description wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms" dangerouslySetInnerHTML={{ __html: description2 }}></p>}
                                 </div>
                                 <div className="button-group mt--30">
-                                    {downloadButton && <a className="rn-button wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms" href="#downloadbutton"><span>{downloadButton}</span></a>}
+                                    {/**downloadButton && <a className="rn-button wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms" href="#downloadbutton"><span>{downloadButton}</span></a>*/}
                                 </div>
                             </div>
                         </div>

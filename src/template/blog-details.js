@@ -1,24 +1,17 @@
 import React from 'react';
 import { graphql } from "gatsby";
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image"
 import { slugify } from "../utils/utilityFunctions";
-import { DiscussionEmbed } from 'disqus-react';
 import Layout from "../components/layout";
 
 const BlogDetails = ({data, pageContext}) => {
     const {
         title , image, tags, category
     } = data.markdownRemark.frontmatter;
+
     const imageSrc = image.childImageSharp;
     const {html} = data.markdownRemark;
-    
-    const baseUrl = 'https://gatsbytutorial.co.uk/'
-    const disqusShortname = 'https-gatsbytutorial-co-uk';
-    const disqusConfig = {
-        url: baseUrl + pageContext.slug,
-        identifier: data.markdownRemark.id,
-        title: title,
-    };
+
     return (
         <Layout>
             <div className="blog-details-wrapper rn-section-gap bg-color-white">
@@ -26,7 +19,7 @@ const BlogDetails = ({data, pageContext}) => {
                     <div className="row">
                         <div className="col-lg-8 offset-lg-2">
                             <div className="post-image">
-                                <Img fluid={imageSrc.fluid} alt={title}/>
+                                <GatsbyImage image={imageSrc.gatsbyImageData} alt={title}/>
                             </div>
                             <div className="post-single-title">
                                 <h1 className="post-title">{title}</h1>
@@ -43,61 +36,6 @@ const BlogDetails = ({data, pageContext}) => {
 
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-lg-8 offset-lg-2">
-                            <div className="blog-contact-form">
-                                <div className="social-share-inner text-center pt--50">
-                                    <h3>Share This Post</h3>
-                                    <ul className="social-share-links liststyle d-flex justify-content-center">
-                                        <li>
-                                            <a className="facebook" target="_blank" rel="noopener noreferrer" href={'https://www.facebook.com/sharer.php?u=' + 
-                                            baseUrl + 
-                                            pageContext.slug
-                                            }>
-                                                <span>facebook</span>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a className="twitter" target="_blank" rel="noopener noreferrer" href={'https://www.twitter.com/share?url=' + 
-                                            baseUrl + 
-                                            pageContext.slug +
-                                            '&text=' +
-                                            title +
-                                            '&via' +
-                                            'twitterHandle'
-
-                                            }>
-                                                <span>Twitter</span>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a className="google" target="_blank" rel="noopener noreferrer" href={'https://plus.google.com/share?url=' + 
-                                            baseUrl + 
-                                            pageContext.slug
-
-                                            }>
-                                                <span>Google</span>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a className="linkedin" target="_blank" rel="noopener noreferrer" href={'https://www.linkedin.com/shareArticle?url=' + 
-                                            baseUrl + 
-                                            pageContext.slug
-                                            }>
-                                                <span>linkedin</span>
-                                            </a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-
-                                <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
-                            </div>
-                        </div>
-                    </div>   
                 </div>
             </div>
         </Layout>
@@ -105,34 +43,27 @@ const BlogDetails = ({data, pageContext}) => {
 }
 
 export const blogDetailsData = graphql`
-query blogDetailsQuery ($slug: String!) {
-    markdownRemark (fields: { slug: { eq: $slug } }) {
+query blogDetailsQuery ($id: String!) {
+    markdownRemark (frontmatter: {id: {eq: $id}}) {
         id
         html
-        fields {
-            slug
-        }
         frontmatter {
-            author {
-                name
+          author {
+              name
+          }
+          category
+          title
+          date(formatString: "MMM Do, YYYY")
+          format
+          tags
+          image {
+            childImageSharp {
+                gatsbyImageData
             }
-            category
-            title
-            date(formatString: "MMM Do, YYYY")
-            format
-            tags
-            image {
-                    childImageSharp {
-                        fluid(quality: 100, maxHeight: 350, maxWidth: 510) {
-                        ...GatsbyImageSharpFluid_withWebp
-                        presentationHeight
-                        presentationWidth
-                    }
-                }
-            }
+          }
         }
+      }
     }
-}
 `
 
 export default BlogDetails;

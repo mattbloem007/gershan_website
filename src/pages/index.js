@@ -15,13 +15,13 @@ const Index = () => (
     <SEO title="Gershan Lombard" />
     <Banner />
     <About />
-    <Service />
+    {/**<Service />*/}
     <div className="portfolio-id" id="portfolio">
       <Project />
-      <Brand />
+      {/**<Brand />*/}
       <Testimonial />
     </div>
-    <BlogPost />
+    {/**<BlogPost />*/}
     <Contact />
   </Layout>
 )

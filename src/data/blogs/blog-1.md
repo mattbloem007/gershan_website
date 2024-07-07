@@ -1,11 +1,12 @@
 ---
+id: "1"
 title: 'What is the Difference between Web and Brand Design its has.'
 date: "2020-02-04 05:00:00"
 author: 'Rainbow'
 format: 'image'
 image: '../images/blog/blog-1.jpg'
 category: Themeforest
-tags: 
+tags:
     - react
     - gatsby
     - styled components

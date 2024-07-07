@@ -1,11 +1,12 @@
 /*----------------------
-About Styles  
+About Styles
 -----------------------*/
 
 .about-style {
     .content {
         .title-wrap {
-            border-bottom: 1px solid rgba(0,0,0,.2);
+            border-bottom: 5px solid rgba(0,0,0,1);
+            text-align: center;
             padding-bottom: 25px;
             margin-bottom: 25px;
             @media #{$md-layout} {
@@ -21,9 +22,10 @@ About Styles
         .title {
             text-transform: uppercase;
             font-weight: 900;
-            font-size: 35px;
+            font-size: 100px;
             position: relative;
-            color: #000;
+            -webkit-text-stroke: 2px #000;
+            color: rgba(0,0,0,0.6);
             line-height: 1.4;
             @media #{$sm-layout} {
                 font-size: 26px;
@@ -81,7 +83,7 @@ About Styles
             &.aboutdata-list {
                 margin-top: 36px;
                 li {
-                   
+
                     .icon {
 
                     }
@@ -118,4 +120,3 @@ About Styles
         }
     }
 }
-
