@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ContactOfferings from "../elements/contact/ContactOfferings";
+import ContactOfferings from "../elements/contact/contactOfferings";
 import { Link } from 'gatsby'
 import { FiArrowLeftCircle } from "react-icons/fi";
 import {useStaticQuery, graphql} from 'gatsby';
