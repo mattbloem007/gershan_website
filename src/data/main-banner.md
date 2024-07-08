@@ -3,7 +3,7 @@ id: main-banner
 site_title: Gershan Lombard
 site_subtitle: Breathwork & Ceremony
 slider_images:
-  - /media/5c76996e-feb4-453a-b4a2-b822f8a1714e.jpg
-  - /media/aloe-arborescens.jpeg
-  - /media/lord-ananda.jpeg
+  - /media/0024_20a.jpg
+  - /media/0028_28.jpg
+  - /media/_dsc2411.jpg
 ---
