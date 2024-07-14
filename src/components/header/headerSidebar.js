@@ -1,10 +1,13 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import React, {Fragment, useState, useEffect} from "react";
 import PropTypes from "prop-types";
 import {useStaticQuery, graphql , Link} from 'gatsby';
 import Img from "gatsby-image";
 import Scrollspy from 'react-scrollspy';
+import {GatsbyImage} from 'gatsby-plugin-image'
 
-// Start Header Area 
+// Start Header Area
 const HeaderNoSidebar = () => {
     const headerQuerySidebar = useStaticQuery(graphql`
         query headerQuerySidebarQuery {
@@ -14,18 +17,31 @@ const HeaderNoSidebar = () => {
                     path
                 }
             },
-            file(relativePath: {eq: "images/logo/logo.png"}) {
-                childImageSharp {
-                    fixed (quality: 100, width: 70, height: 35) {
-                        ...GatsbyImageSharpFixed
-                    }
+            settings: markdownRemark(frontmatter: {id: {eq: "settings"}}) {
+              frontmatter {
+                site_logo {
+                  childImageSharp {
+                    gatsbyImageData(layout: FIXED, width: 70, height: 35)
+                  }
                 }
+              }
+            }
+
+            menu: markdownRemark(frontmatter: {id: {eq: "menu_items"}}) {
+              frontmatter {
+                item_1
+                item_2
+                item_3
+                item_4
+                item_5
+              }
             }
         }
     `);
 
     const [isOverlayOpen, setIsOverlayOpen] = useState(false);
-
+    const Logo = headerQuerySidebar.settings.frontmatter.site_logo.childImageSharp.gatsbyImageData;
+    const Menu = headerQuerySidebar.menu.frontmatter
 
 
     useEffect(() => {
@@ -48,17 +64,16 @@ const HeaderNoSidebar = () => {
         })
     }, []);
 
-    const waxonLogo = headerQuerySidebar.file.childImageSharp.fixed;
 
     return (
         <Fragment>
             <header className={scroll ? "rn-header header-default header-transparent d-block d-xl-none scrolled" : "rn-header header-default header-transparent d-block d-xl-none"}>
-                <div className="header-inner">
+                <div className="header-inner" sx={{color: "body_color", fontFamily: "body"}}>
                     {/* Header Logo  */}
                     <div className="header-left">
                         <div className="logo">
                             <Link to="/">
-                                <Img fixed={waxonLogo}  />
+                                <GatsbyImage image={Logo}  />
                             </Link>
                         </div>
                     </div>
@@ -67,7 +82,7 @@ const HeaderNoSidebar = () => {
                         <div className="hambergur-menu">
                             <div className="hamburger-box">
                                 <div className="hamburger-inner">
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -82,7 +97,7 @@ const HeaderNoSidebar = () => {
                             <li>
                                 <a className="menu-hover-link" href="/#home" onClick={onMenuToggleClick}>
                                     <span className="hover-item">
-                                        <span data-text="Home">Home</span>
+                                        <span data-text="Home">{Menu.item_1}</span>
                                     </span>
                                 </a>
                             </li>
@@ -90,7 +105,7 @@ const HeaderNoSidebar = () => {
                             <li>
                                 <a className="menu-hover-link" href="/#about" onClick={onMenuToggleClick}>
                                     <span className="hover-item">
-                                        <span data-text="About">About</span>
+                                        <span data-text="About">{Menu.item_2}</span>
                                     </span>
                                 </a>
                             </li>
@@ -98,7 +113,7 @@ const HeaderNoSidebar = () => {
                             <li>
                                 <a className="menu-hover-link" href="/#portfolio" onClick={onMenuToggleClick}>
                                     <span className="hover-item">
-                                        <span data-text="Portfolio">Portfolio</span>
+                                        <span data-text="Portfolio">{Menu.item_3}</span>
                                     </span>
                                 </a>
                             </li>
@@ -106,15 +121,15 @@ const HeaderNoSidebar = () => {
                             <li>
                                 <a className="menu-hover-link" href="/#news" onClick={onMenuToggleClick}>
                                     <span className="hover-item">
-                                        <span data-text="News">News</span>
+                                        <span data-text="News">{Menu.item_4}</span>
                                     </span>
                                 </a>
                             </li>
-                            
+
                             <li>
                                 <a className="menu-hover-link" href="/#contact" onClick={onMenuToggleClick}>
                                     <span className="hover-item">
-                                        <span data-text="Contact">Contact</span>
+                                        <span data-text="Contact">{Menu.item_5}</span>
                                     </span>
                                 </a>
                             </li>
@@ -129,7 +144,7 @@ const HeaderNoSidebar = () => {
         </Fragment>
     )
 }
-// End Header Area 
+// End Header Area
 
 HeaderNoSidebar.propTypes = {
   siteTitle: PropTypes.string,

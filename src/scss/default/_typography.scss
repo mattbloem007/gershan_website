@@ -20,8 +20,8 @@ body {
 	line-height: var(--line-height-b2);;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	font-family: var(--font-primary);
-	color: var(--color-body);
+	//font-family: var(--font-primary);
+	// color: var(--color-body);
 	font-weight: var(--p-regular);
 	letter-spacing: 0.8px;
 }
@@ -81,9 +81,9 @@ h6,
 .h5,
 .h6 {
 	word-break: break-word;
-	font-family: var(--font-secondary);
+	//font-family: var(--font-secondary);
 	line-height: 1.4074;
-	color: var(--color-heading);
+//	color: var(--color-heading);
 }
 
 h1,
@@ -206,7 +206,7 @@ p {
 	font-size: var(--font-size-b2);
 	line-height: var(--line-height-b2);
 	font-weight: var(--p-regular);
-	color: var(--color-body);
+	// color: var(--color-body);
 	margin: 0 0 24px;
 	&:last-child {
 		margin-bottom: 0 !important;
@@ -257,7 +257,7 @@ var {
 }
 
 /*---------------------------
-	List Style 
+	List Style
 ---------------------------*/
 ul,
 ol {
@@ -298,13 +298,13 @@ ul {
 	li {
 		font-size: var(--font-size-b2);
 		line-height: var(--line-height-b2);
-		color: var(--color-body);
+	//	color: var(--color-body);
 		margin-top: 10px;
 		margin-bottom: 10px;
 
 		a {
 			text-decoration: none;
-			color: var(--color-heading);
+		//	color: var(--color-heading);
 			@extend %transition;
 
 			&:hover {
@@ -322,12 +322,12 @@ ol {
 	li {
 		font-size: var(--font-size-b1);
 		line-height: var(--line-height-b1);
-		color: var(--color-body);
+	//	color: var(--color-body);
 		margin-top: 10px;
 		margin-bottom: 10px;
 
 		a {
-			color: var(--heading-color);
+	//		color: var(--heading-color);
 			@extend %transition;
 			text-decoration: none;
 

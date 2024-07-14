@@ -16,7 +16,7 @@ Portfolio Styles
                     font-weight: 900;
                     opacity: .1;
                     line-height: 0;
-                    -webkit-text-stroke: 1px #000;
+                //    -webkit-text-stroke: 1px #000;
                     -webkit-user-select: none;
 
                     @media #{$lg-layout} {
@@ -92,7 +92,7 @@ Portfolio Styles
             .category {
                 a {
                     text-decoration: none;
-                    color: #333;
+                  //  color: #333;
                     position: relative;
                     display: inline-block;
                     &::after {

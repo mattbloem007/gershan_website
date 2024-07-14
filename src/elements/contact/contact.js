@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react';
 import Contactform from "./contactform";
@@ -34,11 +36,11 @@ const Contact = () => {
 
     const { site: { siteMetadata: { getform_url } } } = contactData;
     return (
-        <div className="rn-contact-area rn-section-gapBottom pt--200 bg-color-white" id="contact">
+        <div className="rn-contact-area rn-section-gapBottom pt--200" sx={{bg: "main_color"}} id="contact">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
-                        <div className="section-title">
+                        <div className="section-title" sx={{color: "headings_color", fontFamily: "heading"}}>
                             <h2 className="title">
                                 {Title}
                             </h2>
@@ -49,7 +51,7 @@ const Contact = () => {
                 <div className="row row--45">
                     {/* Start Contact Form  */}
                     <div className="col-lg-6 col-12 mt--70 mt_md--30 mt_sm--40 wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms">
-                        <div className="info">
+                        <div className="info" sx={{color: "body_color", fontFamily: "body"}}>
                             <p dangerouslySetInnerHTML={{ __html: description }}></p>
                         </div>
                         <Contactform url={getform_url} />

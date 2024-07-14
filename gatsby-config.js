@@ -19,6 +19,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-theme-ui`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -64,14 +65,18 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-          fonts: [
-            `Arsenal ital`,
-            `sans-serif\:300`, `300i`, `400`, `400i`, `500`, `600`, `700`, `900`
-        ],
         fonts: [
           `Merienda`,
-          `sans-serif\:300`, `400`, `500`, `600`, `700`
+          `sans-serif\:300`, `400`, `500`, `600`, `700`,
+          `Arsenal ital`,
+          `sans-serif\:300`, `300i`, `400`, `400i`, `500`, `600`, `700`, `900`,
+          `Merriweather`,
+          `Open Sans`,
+          `Pacifico`,
+          `Museo`,
+          `Courier`,
         ],
+
         display: 'swap',
       },
     },

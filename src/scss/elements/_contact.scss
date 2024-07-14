@@ -14,7 +14,7 @@ Contact Styles
                     font-weight: 900;
                     opacity: .1;
                     line-height: 0;
-                    -webkit-text-stroke: 1px #000;
+                  //  -webkit-text-stroke: 1px #000;
                     -webkit-user-select: none;
                     @media #{$lg-layout} {
                         font-size: 90px;
@@ -80,7 +80,7 @@ Contact Styles
         background: rgb(255, 255, 255);
         padding: 0px 5px;
         transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
-        font-family: var(--font-secondary);
+      //  font-family: var(--font-secondary);
         color: #717173;
         font-weight: 400;
         font-size: 13px;
@@ -164,7 +164,7 @@ Contact Styles
             letter-spacing: .8px;
             font-weight: 400;
             margin-bottom: 45px;
-            font-family: 'Mulish', sans-serif;
+          //  font-family: 'Mulish', sans-serif;
         }
     }
 }

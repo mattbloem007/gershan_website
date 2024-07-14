@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import React, {useState , useEffect} from 'react';
 import { FaFacebookF, FaLinkedinIn, FaTwitter, FaInstagram, FaSkype, FaVimeo } from "react-icons/fa";
 import {useStaticQuery, graphql} from 'gatsby';
@@ -42,11 +44,11 @@ const Footer = ({showBelow}) => {
 
     const footerData = footerQueryData.markdownRemark.frontmatter
     return (
-        <footer className="rn-footer-area bg-color-black pt--90 pb--60">
-            <div className="footer-wrapper">
+        <footer className="rn-footer-area pt--90 pb--60" sx={{bg: "second_color"}}>
+            <div className="footer-wrapper" sx={{color: "body_color", fontFamily: "body"}}>
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--30 mt_sm--30 wow fadeInDown" data-wow-delay="200ms" data-wow-duration="0.1s">
+                        <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--30 mt_sm--30 wow fadeInDown"  data-wow-delay="200ms" data-wow-duration="0.1s">
                             <div className="ft-info">
                                 <p>{footerData.footer_title}</p>
                             </div>
@@ -64,7 +66,7 @@ const Footer = ({showBelow}) => {
 
                         <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--30 mt_sm--30 wow fadeInDown" data-wow-delay="200ms" data-wow-duration="0.6s">
                             <div className="ft-info">
-                                <ul className="social-share">
+                                <ul className="social-share" sx={{color: "body_color"}}>
                                     <li><a target="_blank" href={footerData.footer_fb_link}><FaFacebookF /></a></li>
                                     <li><a target="_blank" href={footerData.footer_insta_link}><FaInstagram /></a></li>
                                 </ul>

@@ -10,7 +10,7 @@ const Archive = ({data , pageContext}) => {
     const pageHeader = `${totalCount} Post${(totalCount === 1) ?'':'s'} By <span class="theme-color">${author}</span>`;
     return (
         <Layout>
-            <div className="rn-post-list-page rn-section-gapBottom pt--90 bg-color-white">
+            <div className="rn-post-list-page rn-section-gapBottom pt--90 bg-color-tertiary">
                 <div className="container">
                     <div className="col-lg-12">
                         <div className="page-top">

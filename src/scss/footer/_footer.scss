@@ -1,11 +1,11 @@
 /*===========================
-    Start Footer Area 
+    Start Footer Area
 =============================*/
 .rn-footer-area {
     .ft-info {
         p {
             display: block;
-            color: #fff;
+          //  color: #fff;
             font-weight: 500;
             font-size: 15px;
             line-height: 2.1;
@@ -35,7 +35,7 @@
                 svg {
                     width: 20px;
                     height: 20px;
-                    fill: #fff;
+                  //  fill: #fff;
                     transition: 0.5s;
                 }
             }
@@ -63,5 +63,3 @@
         bottom: 50px;
     }
 }
-
-

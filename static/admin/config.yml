@@ -66,7 +66,6 @@ collections:
         file: 'src/data/about.md'
         description: 'About content'
         fields:
-          - { label: 'Title', name: 'about_title', widget: 'string' }
           - { label: 'Subtitle', name: 'about_subtitle', widget: 'string' }
           - { label: 'Call To Action button', name: 'cta', widget: 'string' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
@@ -88,7 +87,7 @@ collections:
         description: 'Contact content'
         fields:
           - { label: 'Title', name: 'contact_title', widget: 'string' }
-          - { label: 'Subtitle', name: 'contact_subtitle', widget: 'string' }
+          # - { label: 'Subtitle', name: 'contact_subtitle', widget: 'string' }
           - { label: 'Body', name: 'body', widget: 'markdown' }
           - { label: 'Contact image', name: 'contact_image', widget: 'image' }
 
@@ -127,6 +126,35 @@ collections:
         fields:
           - { label: 'Global title', name: 'site_title', widget: 'string' }
           - { label: 'Site Logo', name: 'site_logo', widget: 'image'}
+
+      - name: 'theme_color'
+        label: 'Theme colours'
+        file: 'src/data/theme/colors.json'
+        description: 'Theme color settings'
+        fields:
+          - { label: 'Primary Color', name: 'main_color', widget: 'color', allowInput: true}
+          - { label: 'Secondary Color', name: 'second_color', widget: 'color', allowInput: true}
+          - { label: 'Headings Color', name: 'headings_color', widget: 'color', allowInput: true}
+          - { label: 'Text Color', name: 'body_color', widget: 'color', allowInput: true}
+
+      - name: 'theme_fonts'
+        label: 'Theme fonts'
+        file: 'src/data/theme/fonts.json'
+        description: 'Fonts settings'
+        fields:
+          - { label: 'Main font (menu items, main text, footer, buttons)', name: 'body', widget: 'select', options: ["Merienda", "Arsenal", "Merriweather", "Open Sans", "Pacifico", "Museo", "Courier"] }
+          - { label: 'Heading font', name: 'heading', widget: 'select', options: ["Merienda", "Arsenal", "Merriweather", "Open Sans", "Pacifico", "Museo", "Courier"] }
+
+      - name: 'menu_items'
+        label: 'Menu Items'
+        file: 'src/data/menu_items.md'
+        description: 'Menu Item Names'
+        fields:
+          - { label: 'Menu Item 1', name: 'item_1', widget: 'string' }
+          - { label: 'Menu Item 2', name: 'item_2', widget: 'string' }
+          - { label: 'Menu Item 3', name: 'item_3', widget: 'string' }
+          - { label: 'Menu Item 4', name: 'item_4', widget: 'string' }
+          - { label: 'Menu Item 5', name: 'item_5', widget: 'string' }
 
           # - label: 'Post Settings'
           #   name: posts

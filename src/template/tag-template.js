@@ -10,7 +10,7 @@ const TagTemplate = ({data , pageContext}) => {
     const pageHeader = `${totalCount} post ${(totalCount === 1) ? '':'s'} Tag By <span class="theme-color">${tag}</span>`;
     return (
         <Layout>
-            <div className="rn-tag-post-area rn-section-gap bg-color-white">
+            <div className="rn-tag-post-area rn-section-gap bg-color-tertiary">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">

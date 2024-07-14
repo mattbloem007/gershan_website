@@ -11,8 +11,8 @@
         position: relative;
         line-height: 1.4;
         letter-spacing: .8px;
-        -webkit-text-stroke: 2px #000;
-        color: rgba(0,0,0,0.6);
+      //  -webkit-text-stroke: 2px #000;
+        // color: rgba(0,0,0,0.6);
         span {
             &.bg {
                 position: absolute;
@@ -23,7 +23,7 @@
                 font-weight: 900;
                 opacity: .1;
                 line-height: 0;
-                -webkit-text-stroke: 1px #000;
+            //    -webkit-text-stroke: 1px #000;
                 -webkit-user-select: none;
                 @media #{$lg-layout} {
                     font-size: 90px;

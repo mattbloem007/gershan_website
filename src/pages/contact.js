@@ -30,7 +30,7 @@ const Contact = () => {
 return(
     <Layout>
       <SEO title="Contact" />
-        <div className="rn-project-details-area rn-section-gap bg-color-white">
+        <div className="rn-project-details-area rn-section-gap bg-color-tertiary">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">

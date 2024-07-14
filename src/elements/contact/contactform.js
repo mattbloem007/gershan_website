@@ -142,8 +142,8 @@ const ContactForm = ({url}) => {
               {errors.message && <span className="error">{errors.message.message}</span>}
           </div>
 
-          <div className="form-submit">
-              <button className="rn-button" type="submit" disabled={serverState.submitting}>
+          <div className="form-submit" sx={{fontFamily: "body"}}>
+              <button className="rn-button" sx={{bg: "second_color", color: "body_color"}} type="submit" disabled={serverState.submitting}>
                   Send Message
               </button>
               {serverState.status && (

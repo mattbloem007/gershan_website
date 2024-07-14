@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import React from 'react';
 import {useStaticQuery, graphql} from 'gatsby';
 import ProjectOne from "../../elements/project/projectOne";
@@ -19,11 +21,11 @@ const Project = () => {
     const Title = portfolioData.markdownRemark.frontmatter.title;
     const Description = portfolioData.markdownRemark.html;
     return (
-        <div className="rn-portfolio-area pt--200 pb--150 bg-color-grey portfolio-style-1">
+        <div className="rn-portfolio-area pt--200 pb--150 portfolio-style-1" sx={{bg: "second_color"}}>
             <div className="container">
                 <div className="row mb--10">
                     <div className="col-lg-12">
-                        <div className="section-title">
+                        <div className="section-title" sx={{color: "headings_color", fontFamily: "heading"}}>
                             <h3 className="title">
                                 {Title}
                             </h3>

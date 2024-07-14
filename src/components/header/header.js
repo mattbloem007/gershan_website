@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import React, { useState, useEffect, Fragment } from "react"
 import PropTypes from "prop-types";
 import {useStaticQuery, graphql , Link} from 'gatsby';
@@ -17,13 +19,23 @@ const Header = () => {
                     path
                 }
             },
-            markdownRemark(frontmatter: {id: {eq: "settings"}}) {
+            settings: markdownRemark(frontmatter: {id: {eq: "settings"}}) {
               frontmatter {
                 site_logo {
                   childImageSharp {
                     gatsbyImageData(layout: FIXED, width: 70, height: 35)
                   }
                 }
+              }
+            }
+
+            menu: markdownRemark(frontmatter: {id: {eq: "menu_items"}}) {
+              frontmatter {
+                item_1
+                item_2
+                item_3
+                item_4
+                item_5
               }
             }
         }
@@ -36,14 +48,15 @@ const Header = () => {
         })
     }, [])
 
-    const Logo = headerQuery.markdownRemark.frontmatter.site_logo.childImageSharp.gatsbyImageData;
+    const Logo = headerQuery.settings.frontmatter.site_logo.childImageSharp.gatsbyImageData;
+    const Menu = headerQuery.menu.frontmatter
 
     return (
         <Fragment>
             <header className={scroll ? "rn-header header-default header-transparent scrolled d-none d-xl-block" : "rn-header header-default header-transparent d-none d-xl-block"}>
                 <div className="header-inner">
                     <div className="container">
-                        <div className="row align-items-center">
+                        <div className="row align-items-center" sx={{color: "body_color", fontFamily: "body"}}>
 
                             {/* Start Header Left  */}
                             <div className="col-lg-3">
@@ -64,7 +77,7 @@ const Header = () => {
                                         <li>
                                             <a className="menu-hover-link" href="/#home">
                                                 <span className="hover-item">
-                                                    <span data-text="Home">Home</span>
+                                                    <span data-text="Home">{Menu.item_1}</span>
                                                 </span>
                                             </a>
                                         </li>
@@ -72,7 +85,7 @@ const Header = () => {
                                         <li>
                                             <a className="menu-hover-link" href="/#about">
                                                 <span className="hover-item">
-                                                    <span data-text="About">About</span>
+                                                    <span data-text="About">{Menu.item_2}</span>
                                                 </span>
                                             </a>
                                         </li>
@@ -80,7 +93,7 @@ const Header = () => {
                                         <li>
                                             <a className="menu-hover-link" href="/#portfolio">
                                                 <span className="hover-item">
-                                                    <span data-text="Portfolio">Portfolio</span>
+                                                    <span data-text="Portfolio">{Menu.item_3}</span>
                                                 </span>
                                             </a>
                                         </li>
@@ -88,7 +101,7 @@ const Header = () => {
                                         <li>
                                             <a className="menu-hover-link" href="/#news">
                                                 <span className="hover-item">
-                                                    <span data-text="News">News</span>
+                                                    <span data-text="News">{Menu.item_4}</span>
                                                 </span>
                                             </a>
                                         </li>
@@ -96,7 +109,7 @@ const Header = () => {
                                         <li>
                                             <a className="menu-hover-link" href="/#contact">
                                                 <span className="hover-item">
-                                                    <span data-text="Contact">Contact</span>
+                                                    <span data-text="Contact">{Menu.item_5}</span>
                                                 </span>
                                             </a>
                                         </li>

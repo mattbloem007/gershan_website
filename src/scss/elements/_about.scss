@@ -24,8 +24,8 @@ About Styles
             font-weight: 900;
             font-size: 100px;
             position: relative;
-            -webkit-text-stroke: 2px #000;
-            color: rgba(0,0,0,0.6);
+          //  -webkit-text-stroke: 2px #000;
+            // color: rgba(0,0,0,0.6);
             line-height: 1.4;
             @media #{$sm-layout} {
                 font-size: 26px;
@@ -42,7 +42,7 @@ About Styles
                     font-weight: 900;
                     opacity: .1;
                     line-height: 0;
-                    -webkit-text-stroke: 1px #000;
+                //    -webkit-text-stroke: 1px #000;
                     -webkit-user-select: none;
                     @media #{$lg-layout} {
                         font-size: 90px;
@@ -62,7 +62,7 @@ About Styles
             font-size: 15px;
             line-height: 2.1;
             letter-spacing: .8px;
-            color: #333;
+            // color: #333;
         }
 
         .description {
@@ -71,9 +71,9 @@ About Styles
             line-height: 2.1;
             letter-spacing: .8px;
             font-weight: 400;
-            color: #333;
+            // color: #333;
             padding-right: 14%;
-            font-family: 'Mulish', sans-serif;
+          //  font-family: 'Mulish', sans-serif;
             @media #{$sm-layout} {
                 padding-right: 0;
             }

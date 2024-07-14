@@ -1,5 +1,5 @@
 /*-------------------------
-Portfolio Details  
+Portfolio Details
 -------------------------*/
 
 
@@ -22,7 +22,7 @@ Portfolio Details
             }
         }
     }
-    
+
     .portfolio-content {
         .content-left {
             h3 {
@@ -37,19 +37,19 @@ Portfolio Details
                     li {
                         span {
                             &.icon {
-                                color: #000;
+                                //color: #000;
                                 font-weight: 500;
                                 min-width: 152px;
                                 display: inline-block;
                                 svg {
                                     width: 20px;
                                     height: 20px;
-                                    color: var(--color-primary);
+                                  //  color: var(--color-primary);
                                     margin-right: 10px;
                                 }
                             }
                             &.projectinfo {
-                                color: #6f6f6f;
+                                //color: #6f6f6f;
                                 display: inline-block;
                                 line-height: 2;
                             }
@@ -93,4 +93,3 @@ Portfolio Details
     }
 
 }
-

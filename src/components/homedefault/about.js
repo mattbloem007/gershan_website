@@ -1,7 +1,10 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import React from 'react'
 import {useStaticQuery, graphql} from 'gatsby';
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Controller, Scene } from 'react-scrollmagic-r18';
+
 
 const About = ( ) => {
     const aboutQueryData = useStaticQuery(graphql`
@@ -29,7 +32,7 @@ const About = ( ) => {
     const AboutImage = aboutQueryData.markdownRemark.frontmatter.about_image.childImageSharp.gatsbyImageData
 
     return (
-        <div className="rb-about-area about-style rn-section-gap bg-color-white" id="about">
+        <div className="rb-about-area about-style rn-section-gap" sx={{bg: "main_color"}} id="about">
             <div className="container">
                 <div className="row row--45 align-items-center">
                     <div className="col-lg-5">
@@ -43,12 +46,12 @@ const About = ( ) => {
                         <div className="inner">
                             <div className="content">
                                 <div className="section-title">
-                                    <div className="title-wrap">
+                                    <div className="title-wrap" sx={{color: "headings_color", fontFamily: "heading"}}>
                                         <h3 className="title wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms">About</h3>
                                         {title && <h4 className="subtitle wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms" dangerouslySetInnerHTML={{ __html: Subtitle }}></h4>}
                                     </div>
 
-                                    {description && <p className="description wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms" dangerouslySetInnerHTML={{ __html: description }}></p>}
+                                    {description && <p className="description wow fadeInLeft" sx={{color: "body_color", fontFamily: "body"}} data-wow-delay="200ms" data-wow-duration="1000ms" dangerouslySetInnerHTML={{ __html: description }}></p>}
                                 </div>
                                 <div className="button-group mt--30">
                                     {/**downloadButton && <a className="rn-button wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms" href="#downloadbutton"><span>{downloadButton}</span></a>*/}

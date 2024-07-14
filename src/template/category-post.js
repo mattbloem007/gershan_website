@@ -11,7 +11,7 @@ const categoryPostList = ({data , pageContext}) => {
 
     return (
         <Layout>
-            <div className="rn-category-post rn-section-gapBottom pt--90 bg-color-white">
+            <div className="rn-category-post rn-section-gapBottom pt--90 bg-color-tertiary">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">

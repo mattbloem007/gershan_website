@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import React from 'react';
 import {useStaticQuery, graphql} from 'gatsby';
 import Slider from "react-slick";
@@ -52,8 +54,8 @@ const Banner = () => {
                 <div className="container">
                             <div className="inner">
                                 <div className="content text-center">
-                                    <h1 className="title wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms" dangerouslySetInnerHTML={{ __html: Title }}></h1>
-                                    <h4 className="subtitle wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1000ms" dangerouslySetInnerHTML={{ __html: SubTitle }}></h4>
+                                    <h1 className="title wow fadeInLeft" sx={{color: "headings_color", fontFamily: "heading"}} data-wow-delay="200ms" data-wow-duration="1000ms" dangerouslySetInnerHTML={{ __html: Title }}></h1>
+                                    <h4 className="subtitle wow fadeInLeft" sx={{color: "body_color", fontFamily: "body"}} data-wow-delay="200ms" data-wow-duration="1000ms" dangerouslySetInnerHTML={{ __html: SubTitle }}></h4>
                                 </div>
                             </div>
                 </div>

@@ -1,5 +1,5 @@
 /*----------------------
-    Blog List Area  
+    Blog List Area
 ------------------------*/
 
 .rn-post-area {
@@ -17,7 +17,7 @@
                     font-weight: 900;
                     opacity: .1;
                     line-height: 0;
-                    -webkit-text-stroke: 1px #000;
+                  //  -webkit-text-stroke: 1px #000;
                     -webkit-user-select: none;
                     @media #{$lg-layout} {
                         font-size: 90px;
@@ -188,22 +188,3 @@ ul {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

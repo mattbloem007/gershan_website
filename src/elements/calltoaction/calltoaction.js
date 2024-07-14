@@ -14,7 +14,7 @@ const Calltoaction = ({title, buttonText, action }) => {
                     </div>
                     <div className="col-lg-12" style={{paddingLeft: "0px"}}>
                         <div className="action-btn text-left text-md-left">
-                            <button className="rn-button btn-white" style={{display: "flex", justifyContent: "center", padding: "0px 30px"}} onClick={action}><span style={{whiteSpace: "nowrap"}}>{buttonText}</span></button>
+                            <button className="rn-button" sx={{bg: "second_color", color: "body_color", fontFamily: "body"}} style={{display: "flex", justifyContent: "center", padding: "0px 30px"}} onClick={action}><span style={{whiteSpace: "nowrap"}}>{buttonText}</span></button>
                         </div>
                     </div>
                 </div>

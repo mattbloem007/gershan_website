@@ -37,7 +37,7 @@ const BlogPost = () => {
 
     const blogs = blogQueryData.allMarkdownRemark.edges;
     return (
-        <div className="rn-post-area rn-section-gapBottom pt--200 bg-color-grey" id="news">
+        <div className="rn-post-area rn-section-gapBottom pt--200 bg-color-extra05" id="news">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">

@@ -27,7 +27,7 @@ const SkillTwo = () => {
     const AllSkillData = skillTwoQueryData.allSkilltwoJson.edges;
 
     return (
-        <div className="our-skill-area rn-section-gap bg-color-white">
+        <div className="our-skill-area rn-section-gap bg-color-tertiary">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
