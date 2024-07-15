@@ -1,11 +1,8 @@
 ---
 id: about
 about_title: Bernard Sydney
-about_subtitle: Creative Web & App Developer
-cta: Download CV
-about_image: /media/images.jpeg
+about_subtitle: About
+cta: Get in Touch
+about_image: /media/test-mantis.png
 ---
-My name is Bernard Sydney. I am a Web Developer, and I'm very passionate and dedicated to my work.
-
-
-With 20 years experience as a professional Web developer, I have acquired the skills and knowledge necessary to make your project a success. I enjoy every step of the design process, from discussion and collaboration.
+Gershan Lombard is qualified Conscious Connected Breathwork Practitioner. He also uses Sound as a modality for healing, having spent many years travelling the world performing. Having deepened on his Shamanic journey he realized that he needed to take Music further and deepen into the expression. The Sound of the Indigenous Bow calls on a deep Ancestral knowing that is available to us all.
