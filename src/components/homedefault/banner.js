@@ -66,7 +66,7 @@ const Banner = () => {
                         <div className="thumbnail-inner">
                         {!!image && !!image.childImageSharp
                           ? <GatsbyImage image={image.childImageSharp.gatsbyImageData} />
-                          : <img src={image.publicURL} />
+                          : null
                         }
                         </div>
                         )
