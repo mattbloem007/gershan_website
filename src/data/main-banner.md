@@ -5,5 +5,5 @@ site_subtitle: Breathwork & Ceremony
 slider_images:
   - /media/0024_20a.jpg
   - /media/0028_28.jpg
-  - /media/_dsc2411.jpg
+  - /media/2024-03-20-tribein4-0885.jpg
 ---
