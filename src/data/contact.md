@@ -1,7 +1,9 @@
 ---
 id: contactus
-contact_title: Get in Touch
+contact_title: Contact Me
 contact_subtitle: Contact
-contact_image: /media/vee-ra-heading.png
+contact_image: /media/2024-03-20-tribein4-0041.jpg
 ---
-Crowds are the most difficult thing for me these days because I have to walk with my head down and my eyes averted. There's still that part of me that wants to hold my head up, make eye contact and smile.
+If you feel compelled to embark on this journey with me, feel free to get in touch for different options and pricing.
+
+I am standing by to answer any questions that you may have. Looking forward.

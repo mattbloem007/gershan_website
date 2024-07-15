@@ -1,11 +1,11 @@
 ---
 id: breath
-title: Breathwork with gershan
-category: breathwork
-featured_image: one-love.jpg
+title: Breathwork with Gershan
+category: Breathwork
+featured_image: dsc08162.jpg
 features:
-  - one-love.jpg
   - aloe.jpeg
-  - img-20240429-wa0011.jpg
+  - dsc08126.jpg
+  - dsc07596.jpg
 ---
 Example breathwork offering

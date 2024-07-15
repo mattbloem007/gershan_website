@@ -1,9 +1,10 @@
 ---
 id: main-banner
 site_title: Gershan Lombard
-site_subtitle: Breathwork & Ceremony
+site_subtitle: Breathwork & Sound Journey & Ceremony
 slider_images:
-  - /media/0024_20a.jpg
+  - /media/dsc08155.jpg
+  - /media/2024-03-20-tribein4-0885.jpg
   - /media/0028_28.jpg
-  - /media/_dsc2411.jpg
+  - /media/image0.jpeg
 ---
