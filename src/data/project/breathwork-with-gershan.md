@@ -8,4 +8,4 @@ features:
   - dsc08126.jpg
   - dsc07596.jpg
 ---
-Example breathwork offering
+Embark on a Breathwork Journey with me.
