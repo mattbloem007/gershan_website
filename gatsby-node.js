@@ -3,18 +3,20 @@ const { slugify } = require('./src/utils/utilityFunctions');
 const path = require('path');
 const _ = require('lodash');
 const {fmImagesToRelative} = require('gatsby-remark-relative-images')
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
 
-exports.onCreateNode = ({node , actions}) => {
+exports.onCreateNode = ({node , actions, getNode }) => {
     const { createNodeField } = actions;
     fmImagesToRelative(node)
 
     if (node.internal.type === 'MarkdownRemark') {
         const slugFromTitle = slugify(node.frontmatter.title)
+        const value = createFilePath({ node, getNode });
         createNodeField({
             node,
             name: 'slug',
-            value: slugFromTitle,
+            value
         });
 
         if (Object.prototype.hasOwnProperty.call(node.frontmatter, "author")) {
