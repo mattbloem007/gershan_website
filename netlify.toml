@@ -1,6 +1,6 @@
 [build]
   base = "/"
-  publish = "public/"
+  publish = "public"
   command = "yarn clean && yarn build"
 
 [build.environment]

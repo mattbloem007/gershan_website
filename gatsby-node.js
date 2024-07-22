@@ -19,22 +19,22 @@ exports.onCreateNode = ({node , actions, getNode }) => {
             value
         });
 
-        if (Object.prototype.hasOwnProperty.call(node.frontmatter, "author")) {
-            createNodeField({
-              node,
-              name: "authorId",
-              value: slugify(node.frontmatter.author)
-            });
-        }
+        // if (Object.prototype.hasOwnProperty.call(node.frontmatter, "author")) {
+        //     createNodeField({
+        //       node,
+        //       name: "authorId",
+        //       value: slugify(node.frontmatter.author)
+        //     });
+        // }
     }
 
-    if(node.internal.type === 'AuthorsJson'){
-        createNodeField({
-            node,
-            name: "authorId",
-            value: slugify(node.name)
-        });
-    }
+    // if(node.internal.type === 'AuthorsJson'){
+    //     createNodeField({
+    //         node,
+    //         name: "authorId",
+    //         value: slugify(node.name)
+    //     });
+    // }
 
 }
 
@@ -159,22 +159,22 @@ exports.createPages = async ({ graphql, actions }) => {
 
 
         // Start Create Authors Page
-        let authors = []
-        _.each(posts, edge => {
-            if(_.get(edge, 'node.fields.authorId')){
-                authors = authors.concat(edge.node.fields.authorId)
-            }
-        })
-        authors = _.uniq(authors)
-        authors.forEach(author => {
-            createPage({
-                path: `/author/${slugify(author)}`,
-                component: templates.authorPage,
-                context: {
-                    author
-                }
-            })
-        })
+        // let authors = []
+        // _.each(posts, edge => {
+        //     if(_.get(edge, 'node.fields.authorId')){
+        //         authors = authors.concat(edge.node.fields.authorId)
+        //     }
+        // })
+        // authors = _.uniq(authors)
+        // authors.forEach(author => {
+        //     createPage({
+        //         path: `/author/${slugify(author)}`,
+        //         component: templates.authorPage,
+        //         context: {
+        //             author
+        //         }
+        //     })
+        // })
         // End Create Authors Page
 
 }
