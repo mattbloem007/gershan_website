@@ -1,5 +1,5 @@
 ---
 id: settings
 site_title: Gershan Lombard
-site_logo: img_20240209_070955.jpg
+site_logo: web-logo.png
 ---
