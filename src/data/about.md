@@ -3,7 +3,7 @@ id: about
 about_title: Bernard Sydney
 about_subtitle: About
 cta: Get in Touch
-about_image: /media/0024_20a.jpg
+about_image: /media/0028_28.jpg
 ---
 Gershan was born in Ceres and grew up in Citrusdal, with his Ancestry firmly rooted in Khoi and San lineages.
 
