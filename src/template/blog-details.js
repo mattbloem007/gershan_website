@@ -8,7 +8,7 @@ import Layout from "../components/layout";
 
 const BlogDetails = ({data, pageContext}) => {
     const {
-        title , image, tags, category
+        title , image, category
     } = data.markdownRemark.frontmatter;
 
     const imageSrc = image.childImageSharp;
@@ -27,14 +27,14 @@ const BlogDetails = ({data, pageContext}) => {
                                 <h1 className="post-title">{title}</h1>
                             </div>
                             <div className="post-content" sx={{color: "body_color", fontFamily: "body"}} dangerouslySetInnerHTML={{__html: html}}/>
-                            <div className="tag-list d-flex align-items-center">
+                            {/**<div className="tag-list d-flex align-items-center">
                                 <span sx={{color: "headings_color", fontFamily: "heading"}}>Tags:</span>
                                 <div className="tags-cloud">
                                     {tags.map((tag) => (
                                         <a key={tag} href={`/tag/${slugify(tag)}`}>{tag}</a>
                                     ))}
                                 </div>
-                            </div>
+                            </div>*/}
 
                         </div>
                     </div>
@@ -50,14 +50,10 @@ query blogDetailsQuery ($id: String!) {
         id
         html
         frontmatter {
-          author {
-              name
-          }
           category
           title
           date(formatString: "MMM Do, YYYY")
           format
-          tags
           image {
             childImageSharp {
                 gatsbyImageData
