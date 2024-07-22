@@ -11,14 +11,14 @@ const Project = () => {
           markdownRemark(frontmatter: {id: {eq: "portfolio"}}) {
             frontmatter {
               id
-              title
+              offerings_title
             }
             html
           }
         }
     `);
 
-    const Title = portfolioData.markdownRemark.frontmatter.title;
+    const Title = portfolioData.markdownRemark.frontmatter.offerings_title;
     const Description = portfolioData.markdownRemark.html;
     return (
         <div className="rn-portfolio-area pt--200 pb--150 portfolio-style-1" sx={{bg: "second_color"}}>
