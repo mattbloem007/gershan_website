@@ -97,7 +97,7 @@ const HeaderNoSidebar = () => {
                             <li>
                                 <a className="menu-hover-link" href="/#home" onClick={onMenuToggleClick}>
                                     <span className="hover-item">
-                                        <span data-text="Home">{Menu.item_1}</span>
+                                        <span data-text={Menu.item_1}>{Menu.item_1}</span>
                                     </span>
                                 </a>
                             </li>
@@ -105,7 +105,7 @@ const HeaderNoSidebar = () => {
                             <li>
                                 <a className="menu-hover-link" href="/#about" onClick={onMenuToggleClick}>
                                     <span className="hover-item">
-                                        <span data-text="About">{Menu.item_2}</span>
+                                        <span data-text={Menu.item_2}>{Menu.item_2}</span>
                                     </span>
                                 </a>
                             </li>
@@ -113,7 +113,7 @@ const HeaderNoSidebar = () => {
                             <li>
                                 <a className="menu-hover-link" href="/#portfolio" onClick={onMenuToggleClick}>
                                     <span className="hover-item">
-                                        <span data-text="Portfolio">{Menu.item_3}</span>
+                                        <span data-text={Menu.item_3}>{Menu.item_3}</span>
                                     </span>
                                 </a>
                             </li>
@@ -121,7 +121,7 @@ const HeaderNoSidebar = () => {
                             <li>
                                 <a className="menu-hover-link" href="/#news" onClick={onMenuToggleClick}>
                                     <span className="hover-item">
-                                        <span data-text="News">{Menu.item_4}</span>
+                                        <span data-text={Menu.item_4}>{Menu.item_4}</span>
                                     </span>
                                 </a>
                             </li>
@@ -129,7 +129,7 @@ const HeaderNoSidebar = () => {
                             <li>
                                 <a className="menu-hover-link" href="/#contact" onClick={onMenuToggleClick}>
                                     <span className="hover-item">
-                                        <span data-text="Contact">{Menu.item_5}</span>
+                                        <span data-text={Menu.item_5}>{Menu.item_5}</span>
                                     </span>
                                 </a>
                             </li>

@@ -80,6 +80,13 @@ collections:
         fields:
           - { label: 'Title', name: 'offerings_title', widget: 'string' }
 
+      - name: 'blog_title'
+        label: 'Promotions Title'
+        file: 'src/data/blogTitle.md'
+        description: 'Promotions Title'
+        fields:
+          - { label: 'Title', name: 'blog_title', widget: 'string' }
+
 
       - name: 'contact'
         label: 'Contact'

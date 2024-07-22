@@ -21,7 +21,7 @@ const Index = () => (
       {/**<Brand />*/}
       <Testimonial />
     </div>
-    {/**<BlogPost />*/}
+    <BlogPost />
     <Contact />
   </Layout>
 )

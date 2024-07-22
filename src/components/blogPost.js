@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import Blog from "./blog";
@@ -31,18 +33,26 @@ const BlogPost = () => {
                     }
                 }
             }
+
+            title: markdownRemark(frontmatter: {id: {eq: "blog"}}) {
+              frontmatter {
+                id
+                blog_title
+              }
+            }
         }
     `);
 
 
     const blogs = blogQueryData.allMarkdownRemark.edges;
+    const name = blogQueryData.title.frontmatter.blog_title;
     return (
         <div className="rn-post-area rn-section-gapBottom pt--200 bg-color-extra05" id="news">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
-                        <div className="section-title mb--40">
-                            <h2 className="title">News</h2>
+                        <div className="section-title mb--40" sx={{color: "headings_color", fontFamily: "heading"}}>
+                            <h3 className="title">{name}</h3>
                         </div>
                     </div>
                 </div>
