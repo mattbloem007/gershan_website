@@ -9,5 +9,7 @@ module.exports = {
     await exec('yarn cache clean');
     console.log('running yarn install');
     await exec('yarn install');
+    console.log('running gatsby clean');
+    await exec('gatsby clean');
   }
 };
