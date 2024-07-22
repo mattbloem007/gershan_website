@@ -138,22 +138,22 @@ exports.createPages = async ({ graphql, actions }) => {
 
 
         // Start Tags Pages
-        let tags = []
-        _.each(posts , edge => {
-            if (_.get(edge , 'node.frontmatter.tags')) {
-                tags = tags.concat(edge.node.frontmatter.tags)
-            }
-        })
-        // Create Tag Posts Pages for indivedual Tag page
-        tags.forEach(tag => {
-            createPage({
-                path: `/tag/${slugify(tag)}`,
-                component: templates.tagPost,
-                context: {
-                    tag
-                }
-            })
-        })
+        // let tags = []
+        // _.each(posts , edge => {
+        //     if (_.get(edge , 'node.frontmatter.tags')) {
+        //         tags = tags.concat(edge.node.frontmatter.tags)
+        //     }
+        // })
+        // // Create Tag Posts Pages for indivedual Tag page
+        // tags.forEach(tag => {
+        //     createPage({
+        //         path: `/tag/${slugify(tag)}`,
+        //         component: templates.tagPost,
+        //         context: {
+        //             tag
+        //         }
+        //     })
+        // })
         // End Category Area
 
 
