@@ -1,7 +1,7 @@
 ---
 id: Sound Ceremonies
 title: Sound Journeys
-category: SoundHealing
+category: Sound Healing
 featured_image: 0024_20a.jpg
 features:
   - 2024-03-20-tribein4-2872.jpg
@@ -9,6 +9,4 @@ features:
 ---
 Come journey with me 
 
-
-
-.....
+......
