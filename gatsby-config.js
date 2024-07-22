@@ -15,7 +15,6 @@ module.exports = {
     `gatsby-plugin-decap-cms`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-netlify`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
