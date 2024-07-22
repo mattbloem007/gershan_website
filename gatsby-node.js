@@ -62,7 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
 
 
-            posts: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/blogs/"}}) {
+            posts: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/blog/"}}) {
                 edges {
                     node {
                         frontmatter {
