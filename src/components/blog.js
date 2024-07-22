@@ -8,7 +8,7 @@ const Blog = ({ title, date, author, path, image, excerpt, category }) => {
         <div className="content-block">
             <div className="post-thubnail">
                 {image &&
-                    <Link to={`/${path}`}>
+                    <Link to={`/blog/${slugify(title)}`}>
                         <Image fluid={image} alt={title}/>
                     </Link>
                 }
@@ -32,10 +32,10 @@ const Blog = ({ title, date, author, path, image, excerpt, category }) => {
                         </span>
                     }
                 </div>
-                {title && <h3 className="title"><Link to={`/${path}`}>{title}</Link></h3>}
+                {title && <h3 className="title"><Link to={`/blog/${slugify(title)}`}>{title}</Link></h3>}
                 {excerpt && <p className="description">{excerpt}</p>}
                 <div className="read-more">
-                    <Link to={`/${path}`}>
+                    <Link to={`/blog/${slugify(title)}`}>
                         <span>Read More</span>
                     </Link>
                 </div>

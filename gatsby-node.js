@@ -67,6 +67,7 @@ exports.createPages = async ({ graphql, actions }) => {
                     node {
                         frontmatter {
                             id
+                            title
                         }
                     }
                 }
@@ -94,7 +95,7 @@ exports.createPages = async ({ graphql, actions }) => {
         posts.forEach(({ node }) => {
             if (node.frontmatter.id) {
               createPage({
-                  path: `blog/${slugify(node.frontmatter.id)}`,
+                  path: `blog/${slugify(node.frontmatter.title)}`,
                   component: templates.blogDetails,
                   context: {
                       id: node.frontmatter.id

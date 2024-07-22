@@ -1,7 +1,7 @@
 [build]
   base = "/"
   publish = "public"
-  command = "yarn clean && yarn build"
+  command = "gatsby clean && gatsby build"
 
 [build.environment]
   YARN_VERSION = "1.22.17"
