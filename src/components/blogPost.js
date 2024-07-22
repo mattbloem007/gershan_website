@@ -7,7 +7,7 @@ import Blog from "./blog";
 const BlogPost = () => {
     const blogQueryData = useStaticQuery(graphql`
         query BlogListQuery {
-            allMarkdownRemark (filter: {fileAbsolutePath: {regex: "/blogs/"}}, sort: {frontmatter: {date: DESC}}) {
+            allMarkdownRemark (filter: {fileAbsolutePath: {regex: "/blog/"}}, sort: {frontmatter: {date: DESC}}) {
                 edges {
                     node {
                         fields {
