@@ -57,13 +57,13 @@ const ContactForm = ({url}) => {
       var template_params = {
                  "reply_to": data.email,
                  "from_name": data.name,
-                 "to_name": "Vee/Ra",
+                 "to_name": "Gershan Lombard",
                  "message": data.message
               }
 
-      var service_id = "vee/ra";
-      var template_id = "template_uviwld5";
-      var user_id = "user_E7hnIvNfEqvZm2avmHiqG";
+      var service_id = "gershan";
+      var template_id = "gershan_email";
+      var user_id = "Bw7NsLTy6IwMHr2UT";
       try {
         emailjs.send(service_id, template_id, template_params, user_id)
       }
