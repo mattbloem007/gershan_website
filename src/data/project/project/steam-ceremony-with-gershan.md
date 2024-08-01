@@ -23,7 +23,7 @@ The steam also involves different herbs that serves a different purpose.  It cou
 
 **David's Root: Mental Clarity, Protection**
 
-These, aforementioned herbs, are but a few of the options I use.
+These aforementioned herbs are but a few of the options I use, the variety used is based on an intuitive process depending on the individual need of the client.
 
 Yours in Service
 
