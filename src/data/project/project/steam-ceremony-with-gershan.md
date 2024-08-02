@@ -25,7 +25,7 @@ The steam also involves different herbs that serves a different purpose.  It cou
 
 These aforementioned herbs are but a few of the options I use. 
 
- The variety used is based on an intuitive process depending on the individual need of the client.
+The variety of herbs used is based on an intuitive process depending on the individual need of the client.
 
 Yours in Service
 
