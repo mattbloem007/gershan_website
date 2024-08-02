@@ -13,8 +13,6 @@ Using the technology of the Indigenous Bow, the monotone sound is designed to in
 
 The fact that is only sound and tones means that no words can be imprinted into the journey, it is all yours. The sound takes you through time and space and your own subconscious. The ultimate intention is to be able to embody these sounds and get you moving and grooving into ecstatic bliss. 
 
-`<iframe width="560" height="315" src="https://www.youtube.com/embed/JG91tnwc2OM?si=fR3O7OLx1E9bBpxe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
-
 Yours in Music
 
 Gershan
