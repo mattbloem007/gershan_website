@@ -67,7 +67,6 @@ const Footer = ({showBelow}) => {
                         <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--30 mt_sm--30 wow fadeInDown" data-wow-delay="200ms" data-wow-duration="0.6s">
                             <div className="ft-info">
                                 <ul className="social-share" sx={{color: "body_color"}}>
-                                    <li><a target="_blank" href={footerData.footer_fb_link}><FaFacebookF /></a></li>
                                     <li><a target="_blank" href={footerData.footer_insta_link}><FaInstagram /></a></li>
                                 </ul>
                             </div>

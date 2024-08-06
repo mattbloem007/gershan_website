@@ -14,7 +14,7 @@ import testimonialThree from '../images/testimonial/3.jpg';
 
 
 const Testimonial = () => {
-    const [activeTab, setActiveTab] = useState('0');
+    const [activeTab, setActiveTab] = useState(0);
     const toggle = tab => {
         if(activeTab !== tab) setActiveTab(tab);
     }
