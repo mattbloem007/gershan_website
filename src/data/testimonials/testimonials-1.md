@@ -25,3 +25,5 @@ intensity and clarity. He manages to strike a balance between guidance and gentl
 offering both encouragement and space. I felt incredibly supported, safe and respected. I want
 
 to send my whole family for sessions.
+
+Amy Grewar
