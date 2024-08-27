@@ -42,7 +42,7 @@ collections:
     slug: 'index'
     media_folder: ''
     public_folder: ''
-    path: 'testimonials/{{title}}'
+    path: 'testimonials/{{testimonial_title}}'
     editor:
       preview: false
     fields:
