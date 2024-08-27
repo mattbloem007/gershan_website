@@ -42,6 +42,7 @@ const Testimonial = () => {
     `);
 
     const TestimonialData = testimonialData.allMarkdownRemark.edges
+    console.log("TESTIs", TestimonialData)
     return (
         <div>
             <div className="testimonial-area testimonial-style-1 pb--110" sx={{bg: "main_color"}}>
