@@ -3,7 +3,7 @@ testimonial_title: Kate Ferguson
 testimonial_subtitle: N/A
 testimonial_image: img20240624102412.jpg
 ---
-These 5 sessions with Gershan were my first immersive and consistent experience with a breathwork modality since introducing yoga pranayama (mostly with asana) a decade ago.
+These 5 sessions with Gershan were my first immersive and consistent experience with a breathwork modality since introducing yoga pranayama (mostly with asana) a decade ago. 
 
 I can feel how my breathing apparatus (the deep tissues and physical capacity of breath) have opened up significantly over these sessions, and unblocked the many rounds of  flu-connected 'shortness of breath' that I've had over the last 5 years. The awareness of some of the sources of this tendency of limitation in my breath is being nurtured, with the loving guidance of Gershan. I can feel the energetic ease and trust that the breathwork has made room for in my body/being.
 
