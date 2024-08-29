@@ -1,6 +1,6 @@
 ---
 testimonial_title: Kate Ferguson
-testimonial_subtitle: N/A
+testimonial_subtitle: Past Client
 testimonial_image: img20240624102412.jpg
 ---
 These 5 sessions with Gershan were my first immersive and consistent experience with a breathwork modality since introducing yoga pranayama (mostly with asana) a decade ago. 
