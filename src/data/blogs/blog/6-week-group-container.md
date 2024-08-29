@@ -3,7 +3,7 @@ id: Group Offering
 title: 6-Week Group container
 date: 2024-08-29T11:28:00.000Z
 format: image
-image: img-20240804-wa0022.jpg
+image: img-20240804-wa0042.jpg
 category: Promotion
 ---
 One of the things I hear most often is how different a group session is to a 1-on-1 breath session. Not enough time spent debriefing, not enough return breathers to come and delve into the breathwork process, and more.
