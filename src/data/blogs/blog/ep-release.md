@@ -10,4 +10,4 @@ A collection of songs that have been stacked in the archive.
 
 Some improvised, most of it raw and unmastered but nevertheless I thought I would share. For all intents and Purposes a demo.
 
-[](https://freemanlots.bandcamp.com/album/the-fall-of-the-ellipsis-planned-unmastered)
+[](<<iframe style="border: 0; width: 100%; height: 120px; max-width: 500px;" src="https://bandcamp.com/EmbeddedPlayer/album=608231056/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://freemanlots.bandcamp.com/album/the-fall-of-the-ellipsis-planned-unmastered">The Fall of the Ellipsis (Planned &amp; UnMastered) by FreeMan LoTS</a></iframe>>)
