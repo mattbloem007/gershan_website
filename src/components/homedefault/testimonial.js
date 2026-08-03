@@ -71,7 +71,7 @@ const Testimonial = () => {
                                                 <p dangerouslySetInnerHTML={{ __html: testimonial.node.html }}></p>
                                                 <div className="client-info">
                                                     <div className="thumbnail">
-                                                        <GatsbyImage image={testimonial.node.frontmatter.testimonial_image.childImageSharp.gatsbyImageData} alt="Testimonail Images" />
+                                                        {testimonial.node.frontmatter.testimonial_image && <GatsbyImage image={testimonial.node.frontmatter.testimonial_image.childImageSharp.gatsbyImageData} alt="Testimonail Images" />}
                                                     </div>
                                                     <div className="info">
                                                         <h3 className="title" sx={{color: "headings_color", fontFamily: "heading"}}>{testimonial.node.frontmatter.testimonial_title}</h3>
@@ -94,7 +94,7 @@ const Testimonial = () => {
                                                 className={classnames({ active: activeTab === index })}
                                                 onClick={() => { toggle(index); }}
                                                 >
-                                                  <GatsbyImage image={testimonial.node.frontmatter.testimonial_image.childImageSharp.gatsbyImageData} alt="Testimonail Images" />
+                                                  {testimonial.node.frontmatter.testimonial_image && <GatsbyImage image={testimonial.node.frontmatter.testimonial_image.childImageSharp.gatsbyImageData} alt="Testimonail Images" />}
                                             </NavLink>
                                         </NavItem>
                                       )

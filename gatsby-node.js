@@ -6,6 +6,62 @@ const {fmImagesToRelative} = require('gatsby-remark-relative-images')
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 
+// Explicit schema so the build doesn't break when a Decap CMS collection has
+// zero entries, or an entry omits an optional field (Gatsby otherwise infers
+// each frontmatter field only from whatever content currently exists).
+exports.createSchemaCustomization = ({ actions }) => {
+    const { createTypes } = actions
+
+    createTypes(`
+        type MarkdownRemark implements Node {
+            frontmatter: MarkdownRemarkFrontmatter
+            fields: MarkdownRemarkFields
+        }
+
+        type MarkdownRemarkFrontmatter {
+            id: String
+            title: String
+            category: String
+            featured_image: File @fileByRelativePath
+            features: [File] @fileByRelativePath
+            date: Date @dateformat
+            format: String
+            image: File @fileByRelativePath
+            testimonial_title: String
+            testimonial_subtitle: String
+            testimonial_image: File @fileByRelativePath
+            site_title: String
+            site_subtitle: String
+            slider_images: [File] @fileByRelativePath
+            about_title: String
+            about_subtitle: String
+            cta: String
+            about_image: File @fileByRelativePath
+            offerings_title: String
+            blog_title: String
+            contact_title: String
+            contact_subtitle: String
+            contact_image: File @fileByRelativePath
+            footer_title: String
+            footer_address: String
+            footer_email: String
+            footer_number: String
+            footer_fb_link: String
+            footer_insta_link: String
+            site_logo: File @fileByRelativePath
+            item_1: String
+            item_2: String
+            item_3: String
+            item_4: String
+            item_5: String
+        }
+
+        type MarkdownRemarkFields {
+            slug: String
+        }
+    `)
+}
+
 exports.onCreateNode = ({node , actions, getNode }) => {
     const { createNodeField } = actions;
     fmImagesToRelative(node)
