@@ -7,4 +7,5 @@ slider_images:
   - /media/img-20240626-wa0024.jpg
   - /media/dscf8982.jpg
   - /media/e434c008-ce47-4715-b89f-a473bccc2082.jpg
+  - /media/gershan-denovan-cornwill-lombard-thp-certification.png
 ---
