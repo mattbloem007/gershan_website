@@ -22,33 +22,33 @@ exports.createSchemaCustomization = ({ actions }) => {
             id: String
             title: String
             category: String
-            featured_image: File @fileByRelativePath
-            features: [File] @fileByRelativePath
+            featured_image: File
+            features: [File]
             date: Date @dateformat
             format: String
-            image: File @fileByRelativePath
+            image: File
             testimonial_title: String
             testimonial_subtitle: String
-            testimonial_image: File @fileByRelativePath
+            testimonial_image: File
             site_title: String
             site_subtitle: String
-            slider_images: [File] @fileByRelativePath
+            slider_images: [File]
             about_title: String
             about_subtitle: String
             cta: String
-            about_image: File @fileByRelativePath
+            about_image: File
             offerings_title: String
             blog_title: String
             contact_title: String
             contact_subtitle: String
-            contact_image: File @fileByRelativePath
+            contact_image: File
             footer_title: String
             footer_address: String
             footer_email: String
             footer_number: String
             footer_fb_link: String
             footer_insta_link: String
-            site_logo: File @fileByRelativePath
+            site_logo: File
             item_1: String
             item_2: String
             item_3: String
@@ -60,6 +60,56 @@ exports.createSchemaCustomization = ({ actions }) => {
             slug: String
         }
     `)
+}
+
+// gatsby-remark-relative-images resolves CMS image paths (e.g. "/media/foo.jpg")
+// to File nodes during onCreateNode, by matching against whatever File nodes it
+// has seen *so far* in that moment. Since static/media is sourced independently
+// of src/data, a markdown node can be processed before all its referenced images
+// have been sourced, silently leaving that path unresolved (@fileByRelativePath
+// then can't find a File node for it, so the field resolves to null) — which
+// image(s) lose the race varies between builds. Resolving by basename here runs
+// after sourcing is complete, so it isn't subject to that ordering.
+const IMAGE_FRONTMATTER_FIELDS = [
+    'featured_image',
+    'features',
+    'image',
+    'testimonial_image',
+    'slider_images',
+    'about_image',
+    'contact_image',
+    'site_logo',
+]
+
+exports.createResolvers = ({ createResolvers }) => {
+    const resolveByBasename = async (rawValue, context) => {
+        if (!rawValue) return null
+        const base = path.basename(rawValue)
+        return context.nodeModel.findOne({
+            type: 'File',
+            query: { filter: { base: { eq: base } } },
+        })
+    }
+
+    const resolvers = {}
+    for (const field of IMAGE_FRONTMATTER_FIELDS) {
+        const isList = field === 'features' || field === 'slider_images'
+        resolvers[field] = {
+            type: isList ? '[File]' : 'File',
+            resolve: async (source, args, context) => {
+                const raw = source[field]
+                if (!raw) return null
+                if (Array.isArray(raw)) {
+                    return Promise.all(raw.map(value => resolveByBasename(value, context)))
+                }
+                return resolveByBasename(raw, context)
+            },
+        }
+    }
+
+    createResolvers({
+        MarkdownRemarkFrontmatter: resolvers,
+    })
 }
 
 exports.onCreateNode = ({node , actions, getNode }) => {

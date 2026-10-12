@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {useStaticQuery, graphql} from 'gatsby';
 import Slider from "react-slick";
 import { GatsbyImage } from "gatsby-plugin-image"
@@ -34,7 +34,23 @@ const Banner = () => {
     const Title = banenrQueryData.markdownRemark.frontmatter.site_title;
     const SubTitle = banenrQueryData.markdownRemark.frontmatter.site_subtitle;
 
+    // react-slick measures/mutates the DOM on mount in a way that doesn't match
+    // what it server-renders, which trips a React hydration mismatch and can
+    // leave the carousel in an inconsistent state. Render a plain static slide
+    // during SSR/first paint and swap in the real carousel only once mounted.
+    const [hasMounted, setHasMounted] = useState(false);
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
 
+    const slides = PortfolioImages && PortfolioImages.map((image, index) => (
+        <div className="thumbnail-inner" key={image && image.publicURL ? image.publicURL : index}>
+        {!!image && !!image.childImageSharp
+          ? <GatsbyImage image={image.childImageSharp.gatsbyImageData} />
+          : null
+        }
+        </div>
+    ));
 
     const settings = {
         dots: true,
@@ -60,19 +76,10 @@ const Banner = () => {
                             </div>
                 </div>
                 <div className="thumbnail">
-                    <Slider {...settings}>
-                    {PortfolioImages && PortfolioImages.map(image => {
-                      return(
-                        <div className="thumbnail-inner">
-                        {!!image && !!image.childImageSharp
-                          ? <GatsbyImage image={image.childImageSharp.gatsbyImageData} />
-                          : null
-                        }
-                        </div>
-                        )
-                      })
+                    {hasMounted
+                      ? <Slider {...settings}>{slides}</Slider>
+                      : (slides && slides.find(slide => slide.props.children))
                     }
-                    </Slider>
                 </div>
             </div>
             {/* End Single Slider  */}
